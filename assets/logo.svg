@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">Emblema provisional EA</title>
+  <defs><linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b3027"/><stop offset="1" stop-color="#1b6249"/></linearGradient></defs>
+  <rect x="3" y="3" width="94" height="94" rx="27" fill="url(#green)"/>
+  <path d="M50 18 56 35l18 1-14 11 5 18-15-10-15 10 5-18-14-11 18-1z" fill="#c5dc72" opacity=".94"/>
+  <text x="50" y="78" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="24" font-weight="700">EA</text>
+</svg>
