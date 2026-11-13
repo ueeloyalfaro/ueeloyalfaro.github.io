@@ -95,3 +95,39 @@ const offerPages = ['inicial.html', 'basica-elemental.html', 'basica-media.html'
 const activePage = offerPages.includes(currentPage) ? 'oferta-educativa.html' : currentPage;
 navigation?.querySelectorAll(`a[href="${activePage}"]`).forEach((link) => link.classList.add('active'));
 navigation?.querySelectorAll(`a[href="${activePage}"]`).forEach((link) => link.setAttribute('aria-current', 'page'));
+
+const newsCollage = document.querySelector('[data-news-collage]');
+if (newsCollage) {
+  const slides = [...newsCollage.querySelectorAll('.news-collage-slide')];
+  const dots = [...newsCollage.querySelectorAll('[data-collage-dot]')];
+  const status = newsCollage.querySelector('[data-collage-status]');
+  let active = 0;
+  let timer;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const showNewsSlide = (index) => {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === active);
+      slide.setAttribute('aria-hidden', String(i !== active));
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === active);
+      dot.setAttribute('aria-pressed', String(i === active));
+    });
+    if (status) status.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+  };
+  const stopNewsAutoplay = () => { window.clearInterval(timer); timer = undefined; };
+  const startNewsAutoplay = () => {
+    if (reducedMotion || timer || slides.length < 2) return;
+    timer = window.setInterval(() => showNewsSlide(active + 1), 5500);
+  };
+  newsCollage.querySelector('[data-collage-prev]')?.addEventListener('click', () => showNewsSlide(active - 1));
+  newsCollage.querySelector('[data-collage-next]')?.addEventListener('click', () => showNewsSlide(active + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => showNewsSlide(i)));
+  newsCollage.addEventListener('mouseenter', stopNewsAutoplay);
+  newsCollage.addEventListener('mouseleave', startNewsAutoplay);
+  newsCollage.addEventListener('focusin', stopNewsAutoplay);
+  newsCollage.addEventListener('focusout', (event) => { if (!newsCollage.contains(event.relatedTarget)) startNewsAutoplay(); });
+  showNewsSlide(0);
+  startNewsAutoplay();
+}
