@@ -1,5 +1,25 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.main-nav');
+const replayHeroEntrance = () => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.body.classList.remove('hero-play');
+  void document.body.offsetWidth;
+  document.body.classList.add('hero-play');
+};
+replayHeroEntrance();
+window.addEventListener('pageshow', (event) => { if (event.persisted) replayHeroEntrance(); });
+navigation?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const destination = new URL(link.href, location.href);
+    const destinationPage = destination.pathname.split('/').pop() || 'index.html';
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    if (destinationPage === currentPage && !destination.hash) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      replayHeroEntrance();
+    }
+  });
+});
 
 menuButton?.addEventListener('click', () => {
   const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
@@ -77,7 +97,7 @@ if (carousel) {
   dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
   let autoplay;
   const startAutoplay = () => {
-    if (!autoplay) autoplay = window.setInterval(() => showSlide(activeSlide + 1), 5000);
+    if (!autoplay) autoplay = window.setInterval(() => showSlide(activeSlide + 1), 3800);
   };
   const stopAutoplay = () => {
     window.clearInterval(autoplay);

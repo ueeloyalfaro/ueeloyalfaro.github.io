@@ -21,3 +21,52 @@
 @media(max-width:760px){.site-header{height:70px}.main-nav{background:var(--green-dark);border-radius:0 0 12px 12px;padding:10px 6% 17px}.main-nav a{padding:12px 4px;border-radius:0;border-bottom:1px solid #ffffff25;font-size:12px}.main-nav a:hover,.main-nav a.active{background:transparent;color:#f5d16b}.header-cta{margin-left:auto;margin-right:12px}.hero{padding-top:50px;padding-bottom:48px}.photo-hero{height:350px}.section-pad{padding-top:55px;padding-bottom:55px}.intro h2,.offer h2,.life h2,.news h2{font-size:38px}.activity-art:has(.activity-photo),.activity-feature .activity-art:has(.activity-photo){height:220px}.inner-hero{min-height:0;padding-top:45px;padding-bottom:50px}}
 @media(max-width:480px){.hero{padding-top:42px;padding-bottom:43px}.hero h1{font-size:50px}.photo-hero{height:280px}.photo-caption{bottom:11px;left:11px;right:86px;padding:11px 10px;font-size:8px}.carousel-dots{right:13px;bottom:22px}.carousel-arrow{height:30px;width:30px}.carousel-prev{left:10px}.carousel-next{right:10px}.play-video{height:40px;width:40px;top:15px;left:15px}.section-pad{padding-top:48px;padding-bottom:48px}.intro h2,.offer h2,.life h2,.news h2{font-size:33px}.activity-art:has(.activity-photo),.activity-feature .activity-art:has(.activity-photo){height:205px}.inner-hero{padding-top:39px;padding-bottom:43px}.inner-hero>img{height:230px}}
 @media(prefers-reduced-motion:reduce){.photo-hero .hero-photo{transition:none}.activity-photo{transition:none}}
+/* Animaciones de portada: estilo propio para cada menú */
+@keyframes home-wipe{from{opacity:.18;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes home-copy{from{opacity:0;transform:translateX(-44px);filter:blur(5px)}to{opacity:1;transform:translateX(0);filter:blur(0)}}
+@keyframes home-glint{0%{text-shadow:none}45%{text-shadow:0 0 20px #d9f279b8,0 0 42px #ffffff75}100%{text-shadow:0 0 0 transparent}}
+@keyframes institution-right{from{opacity:0;transform:translateX(65px);filter:blur(4px)}to{opacity:1;transform:translateX(0);filter:blur(0)}}
+@keyframes offer-focus{from{opacity:0;transform:translateY(34px) scale(.96);filter:blur(7px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes student-sweep{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-24px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:translateX(0)}}
+@keyframes news-reveal{from{opacity:0;transform:translateX(48px) scale(.94);filter:blur(4px)}to{opacity:1;transform:translateX(0) scale(1);filter:blur(0)}}
+@keyframes contact-rise{from{opacity:0;transform:translateY(38px) scale(.98);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes photo-sweep-left{from{opacity:0;clip-path:inset(0 100% 0 0);transform:scale(1.06)}to{opacity:1;clip-path:inset(0 0 0 0);transform:scale(1)}}
+@keyframes photo-sweep-right{from{opacity:0;clip-path:inset(0 0 0 100%);transform:scale(1.06)}to{opacity:1;clip-path:inset(0 0 0 0);transform:scale(1)}}
+@keyframes button-pop{0%{opacity:0;transform:translateY(16px) scale(.92)}70%{opacity:1;transform:translateY(-3px) scale(1.025)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes label-flash{0%{opacity:0;transform:translateY(12px);filter:brightness(.6)}70%{opacity:1;transform:translateY(-2px);filter:brightness(1.7)}100%{opacity:1;transform:translateY(0);filter:brightness(1)}}
+.hero-play .hero-inner>.eyebrow,.hero-play .hero-inner>h1,.hero-play .hero-inner>p,.hero-play .hero-inner>.hero-actions,
+.hero-play .inner-hero-copy>.eyebrow,.hero-play .inner-hero-copy>h1,.hero-play .inner-hero-copy>p,
+.hero-play .inner-hero-copy>.button,.hero-play .inner-hero-copy>.authority-jump,
+.hero-play .inner-hero>img,.hero-play .inner-hero>.news-photo-collage,.hero-play .photo-hero{will-change:transform,opacity,clip-path,filter}
+.hero-play.page-inicio .photo-hero{animation:home-wipe 1.05s cubic-bezier(.2,.78,.22,1) both}
+.hero-play.page-inicio .hero-inner>.eyebrow{animation:label-flash .7s ease .12s both}
+.hero-play.page-inicio .hero-inner>h1{animation:home-copy .95s cubic-bezier(.18,.8,.22,1) .28s both}
+.hero-play.page-inicio .hero-inner>h1 em{animation:home-glint 1.25s ease 1s both}
+.hero-play.page-inicio .hero-inner>p{animation:home-copy .78s cubic-bezier(.18,.8,.22,1) .5s both}
+.hero-play.page-inicio .hero-inner>.hero-actions{animation:button-pop .75s cubic-bezier(.18,.8,.22,1) .72s both}
+.hero-play.page-institucion .inner-hero-copy>*{animation:institution-right .8s cubic-bezier(.18,.8,.22,1) both}
+.hero-play.page-institucion .inner-hero-copy>.eyebrow{animation-delay:.08s}.hero-play.page-institucion .inner-hero-copy>h1{animation-delay:.24s}.hero-play.page-institucion .inner-hero-copy>p{animation-delay:.4s}.hero-play.page-institucion .inner-hero-copy>.button{animation-delay:.58s}.hero-play.page-institucion .inner-hero-copy>.authority-jump{animation-delay:.7s}
+.hero-play.page-institucion .inner-hero>img{animation:photo-sweep-right 1.05s cubic-bezier(.2,.78,.22,1) .28s both}
+.hero-play.page-oferta-educativa .inner-hero-copy>.eyebrow{animation:label-flash .75s ease .08s both}
+.hero-play.page-oferta-educativa .inner-hero-copy>h1{animation:offer-focus .95s cubic-bezier(.2,.8,.2,1) .22s both}
+.hero-play.page-oferta-educativa .inner-hero-copy>p{animation:offer-focus .8s cubic-bezier(.2,.8,.2,1) .4s both}
+.hero-play.page-oferta-educativa .inner-hero-copy>.button{animation:button-pop .78s cubic-bezier(.18,.8,.22,1) .58s both}
+.hero-play.page-oferta-educativa .inner-hero>img{animation:photo-sweep-left 1.05s cubic-bezier(.2,.78,.22,1) .18s both}
+.hero-play.page-vida-estudiantil .inner-hero-copy>.eyebrow{animation:label-flash .7s ease .08s both}
+.hero-play.page-vida-estudiantil .inner-hero-copy>h1{animation:student-sweep .95s cubic-bezier(.18,.8,.22,1) .22s both}
+.hero-play.page-vida-estudiantil .inner-hero-copy>p{animation:contact-rise .78s ease .42s both}
+.hero-play.page-vida-estudiantil .inner-hero-copy>.button{animation:button-pop .75s ease .6s both}
+.hero-play.page-vida-estudiantil .inner-hero>img{animation:photo-sweep-right 1s cubic-bezier(.2,.78,.22,1) .25s both}
+.hero-play.page-novedades .inner-hero-copy>.eyebrow{animation:label-flash .7s ease .08s both}
+.hero-play.page-novedades .inner-hero-copy>h1{animation:student-sweep 1s cubic-bezier(.18,.8,.22,1) .2s both}
+.hero-play.page-novedades .inner-hero-copy>p{animation:contact-rise .75s ease .42s both}
+.hero-play.page-novedades .inner-hero-copy>.button{animation:button-pop .75s ease .6s both}
+.hero-play.page-novedades .inner-hero>.news-photo-collage{animation:news-reveal 1.05s cubic-bezier(.18,.8,.22,1) .24s both}
+.hero-play.page-contacto .inner-hero-copy>.eyebrow{animation:label-flash .72s ease .08s both}
+.hero-play.page-contacto .inner-hero-copy>h1{animation:contact-rise .95s cubic-bezier(.2,.8,.2,1) .2s both}
+.hero-play.page-contacto .inner-hero-copy>p{animation:contact-rise .78s ease .4s both}
+.hero-play.page-contacto .inner-hero-copy>.button{animation:button-pop .75s ease .58s both}
+.hero-play.page-contacto .inner-hero>img{animation:photo-sweep-left 1.05s cubic-bezier(.2,.78,.22,1) .25s both}
+.hero-play .hero-actions .btn,.hero-play .inner-hero-copy>.button{transition:transform .25s,box-shadow .25s}
+.hero-play .hero-actions .btn:hover,.hero-play .inner-hero-copy>.button:hover{transform:translateY(-4px);box-shadow:0 12px 28px #10281d50}
+@media(prefers-reduced-motion:reduce){.hero-play .hero-inner>*,.hero-play .inner-hero-copy>*,.hero-play .inner-hero>img,.hero-play .inner-hero>.news-photo-collage,.hero-play .photo-hero{animation:none!important;opacity:1!important;filter:none!important;clip-path:none!important;transform:none!important}}
