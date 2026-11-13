@@ -229,3 +229,86 @@ html { scroll-padding-top: 118px !important; }
   padding-bottom: 0 !important;
 }
 .site-header { top: 34px !important; z-index: 60 !important; }
+
+
+/* Acceso destacado al sistema de evaluación independiente. */
+.site-header .main-nav a.evaluation-nav-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 9px 11px !important;
+  border: 1px solid #1ca765 !important;
+  border-radius: 7px !important;
+  background: #eaf8ef !important;
+  color: #145332 !important;
+  font-size: 10px !important;
+  letter-spacing: .025em !important;
+  cursor: pointer !important;
+  transition: background .2s ease, color .2s ease, transform .2s ease !important;
+}
+.site-header .main-nav a.evaluation-nav-link::after { display: none !important; }
+.site-header .main-nav a.evaluation-nav-link:hover {
+  background: #1ca765 !important;
+  color: #fff !important;
+  transform: translateY(-1px) !important;
+}
+@media (max-width: 1180px) {
+  .site-header .main-nav a.evaluation-nav-link {
+    margin-top: 4px !important;
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 1181px) and (max-width: 1380px) {
+  .site-header .navwrap { gap: 16px !important; }
+  .site-header .main-nav { gap: 9px !important; }
+  .site-header .main-nav a,
+  .site-header .main-nav a.active { font-size: 10px !important; letter-spacing: .015em !important; }
+  .site-header .main-nav a.evaluation-nav-link { padding: 8px !important; font-size: 9px !important; }
+}
+
+
+/* Aviso accesible para el acceso temporalmente suspendido. */
+.evaluation-maintenance-dialog {
+  width: min(92vw, 480px);
+  max-width: 480px;
+  padding: 0;
+  border: 1px solid rgba(20, 83, 50, .16);
+  border-radius: 18px;
+  background: #fff;
+  color: #24352d;
+  box-shadow: 0 24px 80px rgba(10, 42, 29, .28);
+}
+.evaluation-maintenance-dialog::backdrop { background: rgba(11, 39, 27, .58); backdrop-filter: blur(4px); }
+.evaluation-maintenance-content { padding: 34px 36px 32px; text-align: center; }
+.evaluation-maintenance-mark {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf8ef;
+  color: #16975b;
+  font-size: 26px;
+}
+.evaluation-maintenance-content h2 { margin: 0 0 12px; color: #145332; font: 700 25px/1.2 Georgia, 'Times New Roman', serif; }
+.evaluation-maintenance-content p { margin: 0 auto 24px; max-width: 380px; color: #4e5f56; font: 16px/1.6 Arial, Helvetica, sans-serif; }
+.evaluation-maintenance-close {
+  min-width: 130px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 7px;
+  background: #1ca765;
+  color: #fff;
+  font: 700 14px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.evaluation-maintenance-close:hover { background: #145332; transform: translateY(-1px); }
+@media (max-width: 480px) {
+  .evaluation-maintenance-content { padding: 28px 22px 24px; }
+  .evaluation-maintenance-content h2 { font-size: 22px; }
+  .evaluation-maintenance-content p { font-size: 15px; }
+}

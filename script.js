@@ -131,3 +131,38 @@ if (newsCollage) {
   showNewsSlide(0);
   startNewsAutoplay();
 }
+
+// El acceso permanece en mantenimiento hasta que el sistema esté listo.
+const evaluationLinks = document.querySelectorAll('[data-evaluation-link]');
+if (evaluationLinks.length) {
+  const maintenanceDialog = document.createElement('dialog');
+  maintenanceDialog.className = 'evaluation-maintenance-dialog';
+  maintenanceDialog.setAttribute('aria-labelledby', 'evaluation-maintenance-title');
+  const dialogContent = document.createElement('div');
+  dialogContent.className = 'evaluation-maintenance-content';
+  const dialogMark = document.createElement('span');
+  dialogMark.className = 'evaluation-maintenance-mark';
+  dialogMark.setAttribute('aria-hidden', 'true');
+  dialogMark.textContent = '✦';
+  const dialogTitle = document.createElement('h2');
+  dialogTitle.id = 'evaluation-maintenance-title';
+  dialogTitle.textContent = 'Estamos en mantenimiento';
+  const dialogMessage = document.createElement('p');
+  dialogMessage.textContent = 'El acceso a Evaluación de Exámenes de Grado estará disponible próximamente. Gracias por tu comprensión.';
+  const closeButton = document.createElement('button');
+  closeButton.className = 'evaluation-maintenance-close';
+  closeButton.type = 'button';
+  closeButton.textContent = 'Entendido';
+  closeButton.addEventListener('click', () => maintenanceDialog.close());
+  dialogContent.append(dialogMark, dialogTitle, dialogMessage, closeButton);
+  maintenanceDialog.append(dialogContent);
+  document.body.append(maintenanceDialog);
+
+  evaluationLinks.forEach((link) => {
+    link.title = 'El acceso estará disponible próximamente';
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!maintenanceDialog.open) maintenanceDialog.showModal();
+    });
+  });
+}
