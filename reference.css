@@ -563,8 +563,8 @@ main .value-card p,main .news-body p{font-size:16px;line-height:1.7}
 .page-juramento .civic-hero-overlay{background:linear-gradient(90deg,rgba(7,44,30,.86) 0%,rgba(7,44,30,.62) 43%,rgba(7,44,30,.14) 100%),linear-gradient(0deg,rgba(7,44,30,.32),transparent 55%)}
 .ecuador-flag-wrap{position:absolute;right:max(7vw,32px);bottom:36px;z-index:2;display:flex;align-items:center;gap:13px;padding:12px 15px;border:1px solid #ffffff80;border-radius:12px;background:#103f2dbd;box-shadow:0 10px 28px #071c1370;backdrop-filter:blur(5px)}
 .ecuador-flag-wrap>span{color:#fff;font-size:12px;font-weight:800;letter-spacing:.1em}
-.ecuador-flag{display:grid;width:88px;height:47px;grid-template-rows:2fr 1fr 1fr;overflow:hidden;border:1px solid #ffffffa8;border-radius:3px;background:#edc62e;box-shadow:0 3px 9px #0005}
-.ecuador-flag i:nth-child(1){background:#f5d12f}.ecuador-flag i:nth-child(2){background:#17479e}.ecuador-flag i:nth-child(3){background:#cf2835}
+.ecuador-flag{display:block;width:88px;height:47px;object-fit:cover;overflow:hidden;border:1px solid #ffffffa8;border-radius:3px;background:#edc62e;box-shadow:0 3px 9px #0005}
+
 @media(max-width:760px){.ecuador-flag-wrap{right:6%;bottom:18px;padding:9px 11px}.ecuador-flag{width:68px;height:37px}.ecuador-flag-wrap>span{font-size:10px}.page-juramento .civic-hero-content{padding-bottom:80px}}
 .page-juramento .civic-hero-content{z-index:1}
 
@@ -769,3 +769,17 @@ main .value-card p,main .news-body p{font-size:16px;line-height:1.7}
 @media(max-width:760px){.page-novedades .inner-hero .news-photo-collage{height:300px;box-shadow:8px 8px 0 #c9363e}.news-collage-slide{gap:7px;padding:7px}.news-collage-side{gap:7px}.news-collage-caption{left:15px;bottom:15px;max-width:67%;font-size:12px}.news-collage-controls{right:12px;bottom:11px;gap:4px}.news-collage-controls button{width:31px;height:31px}.news-collage-dots{bottom:23px}}
 @media(max-width:480px){.page-novedades .inner-hero .news-photo-collage{height:245px}.news-collage-slide{grid-template-columns:1.05fr .95fr}.news-collage-slide>img,.news-collage-side img{border-width:2px;border-radius:9px}.news-collage-caption{left:12px;bottom:12px;max-width:65%;padding:8px 10px;font-size:10px}.news-collage-controls{right:9px;bottom:8px}.news-collage-controls span{min-width:40px;font-size:10px}.news-collage-controls button{width:28px;height:28px;font-size:21px}.news-collage-dots{bottom:18px}}
 @media(prefers-reduced-motion:reduce){.news-collage-slide.is-active,.news-collage-slide img{animation:none!important}.news-collage-controls button,.news-collage-dots button{transition:none!important}}
+.ecuador-flag{position:relative}.ecuador-coat{position:absolute;left:50%;top:50%;width:30px;height:39px;object-fit:contain;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 1px #2229)}
+/* Contacto: formulario compacto y consulta por correo */
+.page-contacto .contact-hero-whatsapp svg{width:23px;height:23px;flex:none}
+.page-contacto .contact-message-form{max-width:880px;margin:26px auto 30px;padding:clamp(18px,2.2vw,28px);gap:12px;border-radius:14px}
+.page-contacto .contact-message-form h3{font-size:clamp(23px,2.5vw,29px);margin-bottom:0}
+.page-contacto .contact-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.page-contacto .contact-message-form label{gap:5px;font-size:15px}
+.page-contacto .contact-message-form input:not([type=hidden]),.page-contacto .contact-message-form select,.page-contacto .contact-message-form textarea{padding:10px 12px;font-size:15px}
+.page-contacto .contact-message-form textarea{min-height:82px}
+.page-contacto .contact-form-note{margin:0;color:#58685d;font-size:13px;line-height:1.5}
+.page-contacto .contact-message-form>button{justify-self:start;padding:12px 18px;font-size:15px}
+.page-contacto .contact-info-grid{margin-top:20px}
+.page-contacto .contact-info-grid article a{font-size:15px}
+@media(max-width:620px){.page-contacto .contact-form-row{grid-template-columns:1fr}}

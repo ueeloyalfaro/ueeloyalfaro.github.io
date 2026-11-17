@@ -70,3 +70,29 @@
 .hero-play .hero-actions .btn,.hero-play .inner-hero-copy>.button{transition:transform .25s,box-shadow .25s}
 .hero-play .hero-actions .btn:hover,.hero-play .inner-hero-copy>.button:hover{transform:translateY(-4px);box-shadow:0 12px 28px #10281d50}
 @media(prefers-reduced-motion:reduce){.hero-play .hero-inner>*,.hero-play .inner-hero-copy>*,.hero-play .inner-hero>img,.hero-play .inner-hero>.news-photo-collage,.hero-play .photo-hero{animation:none!important;opacity:1!important;filter:none!important;clip-path:none!important;transform:none!important}}
+/* Hora cívica por la no violencia */
+.civica-life-link{display:grid;grid-template-columns:.92fr 1.08fr;overflow:hidden;border:1px solid #eadbd8;border-radius:17px;background:#fff;box-shadow:0 14px 34px #7d312018}
+.civica-photo{position:relative;display:block;width:100%;min-height:350px;padding:0;border:0;overflow:hidden;background:#e9eee9;cursor:zoom-in}
+.civica-photo img{display:block;width:100%;height:100%;min-height:350px;object-fit:cover;transition:transform .45s ease,filter .35s ease}
+.civica-photo:hover img{transform:scale(1.035);filter:brightness(.82)}
+.civica-photo>span{position:absolute;left:17px;bottom:16px;padding:9px 13px;border:1px solid #ffffff88;border-radius:30px;background:#123d2de6;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em}
+.civica-copy{display:flex;justify-content:center;align-items:flex-start;flex-direction:column;padding:clamp(24px,4vw,42px)}
+.civica-copy>small{color:#c9363e;font-size:13px;font-weight:800;letter-spacing:.12em}
+.civica-copy h3{margin:14px 0 12px;color:#145332;font-family:var(--display);font-size:clamp(27px,3vw,36px);line-height:1.14}
+.civica-copy p{margin:0 0 12px;color:#4f6157;font-size:17px;line-height:1.65}
+.civica-copy>strong{margin-top:5px;color:#16874b;font-size:16px;line-height:1.5}
+@media(max-width:760px){.civica-life-link{grid-template-columns:1fr}.civica-photo,.civica-photo img{min-height:0;height:260px}.civica-copy{padding:25px}.civica-copy p{font-size:16px}}
+
+/* Portadas con marco institucional y movimiento al pasar el cursor */
+.page-institucion .inner-hero>img,.page-oferta-educativa .inner-hero>img,.page-vida-estudiantil .inner-hero>img,.page-novedades .inner-hero>.news-photo-collage,.page-contacto .inner-hero>img{border:5px solid #fff;border-radius:14px;outline:2px solid #c9363e;outline-offset:5px;box-shadow:0 18px 36px #0b352b38,10px 10px 0 #1b8c50;transition:transform .45s cubic-bezier(.2,.75,.25,1),box-shadow .45s,outline-color .35s}
+.page-institucion .inner-hero>img:hover,.page-oferta-educativa .inner-hero>img:hover,.page-vida-estudiantil .inner-hero>img:hover,.page-novedades .inner-hero>.news-photo-collage:hover,.page-contacto .inner-hero>img:hover{transform:translateY(-7px) scale(1.012);outline-color:#e7ce69;box-shadow:0 24px 44px #0b352b48,12px 12px 0 #c9363e}
+main>section.reveal{transition:opacity .8s cubic-bezier(.2,.75,.25,1),transform .8s cubic-bezier(.2,.75,.25,1),filter .8s ease}
+main>section.reveal:not(.is-visible):nth-of-type(odd){transform:translateX(-34px);filter:blur(3px)}
+main>section.reveal:not(.is-visible):nth-of-type(even){transform:translateX(34px);filter:blur(3px)}
+main>section.reveal.is-visible{transform:translateX(0);filter:none}
+.student-events .desfile-life-link,.program-grid article,.notice-grid article,.contact-info-grid article,.gallery-item,.activity-ideas>div{transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s,border-color .35s}
+.student-events .desfile-life-link:hover,.program-grid article:hover,.notice-grid article:hover,.contact-info-grid article:hover,.activity-ideas>div:hover{transform:translateY(-6px);box-shadow:0 15px 32px #103f2d20}
+@media(prefers-reduced-motion:reduce){.page-institucion .inner-hero>img,.page-oferta-educativa .inner-hero>img,.page-vida-estudiantil .inner-hero>img,.page-novedades .inner-hero>.news-photo-collage,.page-contacto .inner-hero>img,main>section.reveal,.student-events .desfile-life-link,.program-grid article,.notice-grid article,.contact-info-grid article,.gallery-item,.activity-ideas>div{transition:none!important;transform:none!important;filter:none!important}}
+
+/* Contacto: WhatsApp, formulario y mapa */
+.whatsapp-contact,.contact-hero-whatsapp{display:inline-flex;align-items:center;gap:12px}.whatsapp-contact svg,.contact-hero-whatsapp svg{width:23px;height:23px;flex:none}.contact-message-form{display:grid;gap:17px;margin:34px 0;padding:clamp(22px,4vw,38px);border:1px solid #dce8d8;border-radius:16px;background:linear-gradient(135deg,#f6faf3,#fff 60%,#fff3f0);box-shadow:0 14px 34px #14533216}.contact-message-form h3{margin:0 0 5px;color:#145332;font-family:var(--display);font-size:clamp(24px,3vw,34px)}.contact-message-form label{display:grid;gap:7px;color:#244b37;font-size:15px;font-weight:700}.contact-message-form input:not([type=hidden]),.contact-message-form select,.contact-message-form textarea{width:100%;padding:13px 14px;border:1px solid #cbd9cd;border-radius:8px;background:white;color:#23382d;font:inherit;font-size:16px}.contact-message-form textarea{resize:vertical}.gps-field{display:flex;align-items:flex-start;gap:8px;flex-direction:column}.gps-field p{margin:0;color:#607066;font-size:14px}.button-outline{border:1px solid #17894d;background:#fff;color:#145332}.contact-info-grid article a{display:inline-block;margin-top:9px;color:#16874b;font-weight:700}.contact-map{height:360px;overflow:hidden;border:5px solid white;border-radius:15px;box-shadow:0 12px 30px #14533224}.contact-map iframe{width:100%;height:100%;border:0}@media(max-width:600px){.contact-map{height:290px}}

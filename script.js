@@ -1,5 +1,55 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.main-nav');
+const siteAnnouncement = document.querySelector('.announcement');
+const siteHeader = document.querySelector('.site-header');
+const siteHeaderSpacer = siteHeader ? document.createElement('div') : null;
+if (siteHeaderSpacer) {
+  siteHeaderSpacer.className = 'site-header-spacer';
+  siteHeaderSpacer.setAttribute('aria-hidden', 'true');
+  siteHeader.after(siteHeaderSpacer);
+}
+const closeOpenDropdowns = (except = null) => {
+  navigation?.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+    if (dropdown !== except) dropdown.removeAttribute('open');
+  });
+};
+navigation?.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+  dropdown.addEventListener('toggle', () => {
+    if (dropdown.open) closeOpenDropdowns(dropdown);
+  });
+});
+document.addEventListener('click', (event) => {
+  if (!navigation?.contains(event.target) && !menuButton?.contains(event.target)) closeOpenDropdowns();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  closeOpenDropdowns();
+  if (navigation?.classList.contains('open')) {
+    navigation.classList.remove('open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.setAttribute('aria-label', 'Abrir menú');
+    if (menuButton && !menuButton.querySelector('span')) menuButton.textContent = '☰';
+  }
+});
+const updateHeaderScrollState = () => {
+  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
+  const fixed = window.scrollY > 0;
+  siteAnnouncement?.classList.toggle('is-fixed', fixed);
+  siteHeader?.classList.toggle('is-fixed', fixed);
+};
+updateHeaderScrollState();
+window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
+document.querySelectorAll('.inner-hero').forEach((hero) => {
+  const photo = hero.querySelector(':scope > img');
+  if (photo?.src) hero.style.setProperty('--hero-photo-backdrop', `url("${photo.currentSrc || photo.src}")`);
+});
+const photoSections = [...document.querySelectorAll('main > section:not(.hero):not(.inner-hero)')].filter((section) => {
+  const photo = section.querySelector('img[src]');
+  if (!photo?.src) return false;
+  section.style.setProperty('--scroll-photo-backdrop', `url("${photo.currentSrc || photo.src}")`);
+  section.classList.add('scroll-photo-section');
+  return true;
+});
 const replayHeroEntrance = () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.body.classList.remove('hero-play');
@@ -38,10 +88,21 @@ navigation?.querySelectorAll('a').forEach((link) => {
   });
 });
 
-const year = document.querySelector('#year');
+const contactForm = document.querySelector('#contact-message-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const subject = `Consulta web: ${data.get('topic')}`;
+    const body = [`Nombre: ${data.get('name')}`, `Correo para responder: ${data.get('email')}`, '', `Consulta: ${data.get('message')}`].join('\n');
+    const mailto = `mailto:alfarocolegioalfaro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.querySelector('#contact-form-status').textContent = 'Se abrirá tu correo. Revisa el mensaje y pulsa Enviar para completar la consulta.';
+    window.location.href = mailto;
+  });
+}const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
-const revealItems = document.querySelectorAll('.reveal, .intro-layout, .values-row, .level-card, .high-school, .activity-card, .news-list article, .contact-card, .contact-side, .program-grid article, .gallery-item, .notice-grid article, .program-feature, .video-feature, .contact-detail-card, .photo-stack, .value-card, .offer, .life-image, .news-card, .section-heading, .contact-photo');
+const revealItems = document.querySelectorAll('.reveal, main > section:not(.hero):not(.inner-hero), .intro-layout, .values-row, .level-card, .high-school, .activity-card, .news-list article, .contact-card, .contact-side, .program-grid article, .gallery-item, .notice-grid article, .program-feature, .video-feature, .contact-detail-card, .photo-stack, .value-card, .offer, .life-image, .news-card, .section-heading, .contact-photo, .student-events-heading, .student-events .desfile-life-link, .activity-ideas > div, .contact-info-grid article');
 revealItems.forEach((item) => item.classList.add('reveal'));
 
 if ('IntersectionObserver' in window) {
@@ -54,8 +115,13 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.12 });
   revealItems.forEach((item) => observer.observe(item));
+  const photoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => entry.target.classList.toggle('photo-in-view', entry.isIntersecting));
+  }, { threshold: 0.2 });
+  photoSections.forEach((section) => photoObserver.observe(section));
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
+  photoSections.forEach((section) => section.classList.add('photo-in-view'));
 }
 
 const lightbox = document.querySelector('.lightbox');
