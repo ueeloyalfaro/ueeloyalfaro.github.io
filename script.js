@@ -17,6 +17,18 @@ navigation?.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
   dropdown.addEventListener('toggle', () => {
     if (dropdown.open) closeOpenDropdowns(dropdown);
   });
+
+  // En equipos con mouse, abre el submenú al entrar y ciérralo al salir.
+  // En pantallas táctiles se conserva el comportamiento nativo por clic.
+  dropdown.addEventListener('pointerenter', (event) => {
+    if (event.pointerType === 'touch' || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    closeOpenDropdowns(dropdown);
+    dropdown.setAttribute('open', '');
+  });
+  dropdown.addEventListener('pointerleave', (event) => {
+    if (event.pointerType === 'touch' || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    dropdown.removeAttribute('open');
+  });
 });
 document.addEventListener('click', (event) => {
   if (!navigation?.contains(event.target) && !menuButton?.contains(event.target)) closeOpenDropdowns();
@@ -252,3 +264,48 @@ if (evaluationLinks.length) {
     });
   });
 }
+
+// Contadores informativos y visitas estimadas para el sitio estático.
+(() => {
+  document.querySelectorAll('[data-impact-number]').forEach((node) => {
+    const target = Number(node.dataset.impactNumber);
+    if (!Number.isFinite(target)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      node.textContent = new Intl.NumberFormat('es-EC').format(target);
+      return;
+    }
+    const duration = 1100;
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      node.textContent = new Intl.NumberFormat('es-EC').format(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+
+  const visitNodes = [...document.querySelectorAll('[data-site-visits]')];
+  if (!visitNodes.length) return;
+  const namespace = 'ueeloyalfaro-web';
+  const counterKey = 'visitas-totales';
+  const baseUrl = `https://counterapi.com/api/${namespace}/view/${counterKey}`;
+  const date = new Date();
+  const today = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  let shouldIncrement = !['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+  try {
+    const lastCounted = localStorage.getItem('ueea-visit-counted-day');
+    if (lastCounted === today) shouldIncrement = false;
+    else if (shouldIncrement) localStorage.setItem('ueea-visit-counted-day', today);
+  } catch (_) { /* Si el navegador bloquea el almacenamiento, cuenta esta visita. */ }
+  const url = shouldIncrement ? baseUrl : `${baseUrl}?readOnly=true`;
+  fetch(url, { cache: 'no-store' })
+    .then((response) => { if (!response.ok) throw new Error('No se pudo cargar el contador'); return response.json(); })
+    .then((data) => {
+      const value = Number(data.value);
+      if (!Number.isFinite(value)) throw new Error('Respuesta de contador inválida');
+      const formatted = new Intl.NumberFormat('es-EC').format(value);
+      visitNodes.forEach((node) => { node.textContent = formatted; });
+    })
+    .catch(() => visitNodes.forEach((node) => { node.textContent = '—'; }));
+})();
