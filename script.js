@@ -74,7 +74,6 @@ navigation?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', (event) => {
     const destination = new URL(link.href, location.href);
     const destinationPage = destination.pathname.split('/').pop() || 'index.html';
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
     if (destinationPage === currentPage && !destination.hash) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -188,6 +187,67 @@ if (carousel) {
   carousel.addEventListener('focusout', startAutoplay);
 }
 
+const memoryCarousel = document.querySelector('[data-memory-carousel]');
+if (memoryCarousel) {
+  const track = memoryCarousel.querySelector('.history-gallery');
+  const cards = [...track.querySelectorAll('.memory-card')];
+  const dotsContainer = memoryCarousel.querySelector('.memory-carousel-dots');
+  const status = memoryCarousel.querySelector('.memory-carousel-status');
+  const toggle = memoryCarousel.querySelector('[data-memory-toggle]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let page = 0;
+  let perPage = 4;
+  let timer;
+  let paused = reducedMotion;
+  const getPerPage = () => window.innerWidth <= 760 ? 2 : window.innerWidth <= 1000 ? 3 : 4;
+  const pageCount = () => Math.max(1, Math.ceil(cards.length / perPage));
+  const render = () => {
+    page = (page + pageCount()) % pageCount();
+    track.style.transform = `translateX(-${page * 100}%)`;
+    [...dotsContainer.children].forEach((dot, index) => {
+      dot.classList.toggle('is-active', index === page);
+      dot.setAttribute('aria-current', index === page ? 'true' : 'false');
+    });
+    if (status) status.textContent = `${String(page + 1).padStart(2, '0')} / ${String(pageCount()).padStart(2, '0')}`;
+  };
+  const buildDots = () => {
+    perPage = getPerPage();
+    dotsContainer.replaceChildren(...Array.from({length: pageCount()}, (_, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Mostrar grupo de fotografías ${index + 1}`);
+      dot.addEventListener('click', () => { page = index; render(); });
+      return dot;
+    }));
+    render();
+  };
+  const stop = () => { window.clearInterval(timer); timer = undefined; };
+  const start = () => {
+    if (paused || reducedMotion || timer || pageCount() < 2) return;
+    timer = window.setInterval(() => { page += 1; render(); }, 4800);
+  };
+  memoryCarousel.querySelector('[data-memory-prev]')?.addEventListener('click', () => { page -= 1; render(); });
+  memoryCarousel.querySelector('[data-memory-next]')?.addEventListener('click', () => { page += 1; render(); });
+  toggle?.addEventListener('click', () => {
+    paused = !paused;
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? 'Reanudar carrusel' : 'Pausar carrusel');
+    toggle.textContent = paused ? '▶' : 'Ⅱ';
+    if (paused) stop(); else start();
+  });
+  memoryCarousel.addEventListener('mouseenter', stop);
+  memoryCarousel.addEventListener('mouseleave', start);
+  memoryCarousel.addEventListener('focusin', stop);
+  memoryCarousel.addEventListener('focusout', (event) => { if (!memoryCarousel.contains(event.relatedTarget)) start(); });
+  window.addEventListener('resize', () => { const next = getPerPage(); if (next !== perPage) buildDots(); });
+  buildDots();
+  if (toggle && reducedMotion) {
+    toggle.setAttribute('aria-pressed', 'true');
+    toggle.setAttribute('aria-label', 'Reanudar carrusel');
+    toggle.textContent = '▶';
+  }
+  start();
+}
 const currentPage = location.pathname.split('/').pop() || 'index.html';
 const offerPages = ['inicial.html', 'basica-elemental.html', 'basica-media.html', 'basica-superior.html', 'bachillerato-ciencias.html', 'bachillerato-soporte-tecnico.html'];
 const activePage = offerPages.includes(currentPage) ? 'oferta-educativa.html' : currentPage;

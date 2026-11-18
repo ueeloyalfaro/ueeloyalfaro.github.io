@@ -816,6 +816,56 @@ main li{font-size:max(16px,1.04em)!important;line-height:1.65}
 /* Conserva el ritmo compacto de tarjetas y formularios al ampliar la lectura general. */
 .offer-content p,.news-body p{font-size:13px!important;line-height:1.6}
 .program-grid p,.activity-ideas p,.video-copy p{font-size:12px!important;line-height:1.65}
+
+/* Oferta educativa: cabecera con mejor contraste y tarjetas fotográficas por etapa. */
+.page-oferta-educativa main>.inner-hero{
+  background-image:linear-gradient(90deg,rgba(248,250,247,.96) 0%,rgba(248,250,247,.88) 45%,rgba(248,250,247,.22) 100%),url("assets/fachada-eloy-alfaro.jpg");
+  background-position:center;background-size:cover
+}
+.page-oferta-educativa .inner-hero-copy{
+  max-width:620px;padding:clamp(22px,3vw,38px);border:1px solid #ffffffc9;border-radius:18px;
+  background:rgba(255,255,255,.84);box-shadow:0 18px 45px #103b251b;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
+}
+.page-oferta-educativa .inner-hero-copy .eyebrow{color:#145332}
+.page-oferta-educativa .inner-hero-copy h1{color:#123f2b;text-shadow:0 1px 0 #fff}
+.page-oferta-educativa .inner-hero-copy h1 em{color:#bd3039}
+.page-oferta-educativa .inner-hero-copy>p{max-width:500px;color:#273b31;font-weight:600}
+.page-oferta-educativa .program-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.page-oferta-educativa .program-grid article{overflow:hidden;padding:0 20px 56px;border:1px solid #e2e9e1;border-radius:15px;background:#fff;box-shadow:0 12px 30px #163e2510}
+.page-oferta-educativa .program-grid article>img{display:block;width:calc(100% + 40px);height:clamp(165px,16vw,225px);margin:0 -20px 18px;object-fit:cover;transition:transform .55s cubic-bezier(.2,.75,.25,1),filter .35s}
+.page-oferta-educativa .program-grid article:hover>img{transform:scale(1.045);filter:saturate(1.08)}
+.page-oferta-educativa .program-grid article>span,.page-oferta-educativa .program-grid h3,.page-oferta-educativa .program-grid p{position:relative;z-index:1}
+.page-oferta-educativa .program-grid article>span{font-size:10px}
+.page-oferta-educativa .program-grid h3{margin:11px 0 9px;font-size:23px}
+.page-oferta-educativa .program-grid p{font-size:14px!important;line-height:1.65}
+.page-oferta-educativa .program-grid a{bottom:17px;left:20px;right:20px;font-size:12px}
+.page-oferta-educativa .program-options article{position:relative;overflow:hidden;padding:0 16px 48px;border:1px solid #e3eae2;border-radius:12px;background:#fff}
+.page-oferta-educativa .program-options article>img{display:block;width:calc(100% + 32px);height:170px;margin:0 -16px 14px;object-fit:cover;transition:transform .55s ease}
+.page-oferta-educativa .program-options article:hover>img{transform:scale(1.04)}
+.page-oferta-educativa .program-options h4{font-size:17px}
+.page-oferta-educativa .program-options p{font-size:13px}
+.page-oferta-educativa .program-options .program-option-link{position:absolute;right:16px;bottom:13px;left:16px;border-top:1px solid #e1e8e0;padding-top:10px;font-size:12px;font-weight:700;color:#145332}
+.page-oferta-educativa .placeholder-note{color:#627268;font-size:12px;line-height:1.6}
+@media(max-width:900px){.page-oferta-educativa .program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.page-oferta-educativa main>.inner-hero{background-position:center;background-image:linear-gradient(90deg,rgba(248,250,247,.95),rgba(248,250,247,.76)),url("assets/fachada-eloy-alfaro.jpg")}.page-oferta-educativa .inner-hero-copy{padding:22px;border-radius:14px}.page-oferta-educativa .program-grid article>img{height:clamp(150px,42vw,220px)}}
+@media(max-width:480px){.page-oferta-educativa .program-grid{grid-template-columns:1fr}.page-oferta-educativa .program-grid article{min-height:0;padding-bottom:54px}.page-oferta-educativa .program-grid article>img{height:210px}.page-oferta-educativa .program-options article>img{height:190px}}
+@media(prefers-reduced-motion:reduce){.page-oferta-educativa .program-grid article>img,.page-oferta-educativa .program-options article>img{transition:none!important}}
+
+/* Retrato real del Inspector General en la ficha de autoridades. */
+.page-institucion .authority-inspector-card{display:flex;flex-direction:column;align-items:flex-start;min-height:330px}
+.page-institucion .authority-inspector-card .authority-photo-avatar{width:148px;height:148px;flex:0 0 148px;margin:0 auto 18px;border:4px solid #fff;border-radius:50%;background:#e7efe5;box-shadow:0 0 0 3px #c4363e,0 10px 26px #174b3528}
+.page-institucion .authority-inspector-card .authority-photo-avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 30%}
+.page-institucion .authority-inspector-card .authority-role-tag{background:#fae8e7;color:#a92e37}
+@media(max-width:560px){.page-institucion .authority-inspector-card{min-height:0}.page-institucion .authority-inspector-card .authority-photo-avatar{width:138px;height:138px;flex-basis:138px;margin:0 auto 16px}}
+.page-institucion .authority-photo-avatar{border:4px solid #fff;border-radius:50%;background:#e7efe5;box-shadow:0 0 0 3px #c4363e,0 10px 26px #174b3528}
+.page-institucion .authority-photo-avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 30%}
+.page-institucion .authority-rector-card .authority-photo-avatar{width:148px;height:148px;flex-basis:148px}
+.page-institucion .authority-yajaira-card .authority-photo-avatar,.page-institucion .authority-jorge-card .authority-photo-avatar{width:142px;height:142px;flex-basis:142px}
+.page-institucion .authority-yajaira-card .authority-role-tag,.page-institucion .authority-jorge-card .authority-role-tag{background:#e9f4e9;color:#145332}
+@media(max-width:560px){.page-institucion .authority-rector-card .authority-photo-avatar{width:132px;height:132px;flex-basis:132px}.page-institucion .authority-yajaira-card .authority-photo-avatar,.page-institucion .authority-jorge-card .authority-photo-avatar{width:132px;height:132px;flex-basis:132px}}
+.page-institucion .authority-grid .authority-photo-avatar{width:148px!important;height:148px!important;flex-basis:148px!important;margin:0 auto 18px!important}
+.page-institucion .authority-lead .authority-photo-avatar{width:148px!important;height:148px!important;flex-basis:148px!important}
+@media(max-width:560px){.page-institucion .authority-grid .authority-photo-avatar,.page-institucion .authority-lead .authority-photo-avatar{width:138px!important;height:138px!important;flex-basis:138px!important}.page-institucion .authority-grid .authority-photo-avatar{margin:0 auto 16px!important}}
 .contact-message-form p,.contact-form-note{font-size:14px!important;line-height:1.55}
 .latest-news-lead p{font-size:19px!important}
 .latest-news-lead .latest-news-summary{font-size:22px!important}
@@ -844,3 +894,21 @@ main li{font-size:max(16px,1.04em)!important;line-height:1.65}
 .page-inicio #institucion .section-kicker{display:inline-flex;align-items:center;margin:0 0 18px;padding:8px 13px;border-left:4px solid #c9363e;border-radius:0 8px 8px 0;background:#eaf4e9;color:#145332!important;font-size:12px;font-weight:850;letter-spacing:.13em;box-shadow:0 5px 14px #14533212}
 .page-inicio #institucion .lead{max-width:580px;margin:18px 0 22px;padding:14px 17px;border-left:4px solid #16874b;border-radius:0 10px 10px 0;background:linear-gradient(105deg,#edf6ec,#fff8f5);color:#263b30!important;font-size:18px!important;font-weight:600;line-height:1.7!important}
 @media(max-width:600px){.page-inicio #institucion .lead{font-size:17px!important;padding:12px 14px}}
+
+/* Carrusel accesible del archivo fotográfico institucional */
+.memory-carousel{max-width:1240px;margin:0 auto}
+.memory-carousel-viewport{overflow:hidden;border-radius:15px}
+.memory-carousel .history-gallery{display:flex;flex-wrap:nowrap;gap:15px;max-width:none;width:100%;margin:0;transition:transform .65s cubic-bezier(.22,.75,.25,1);will-change:transform}
+.memory-carousel .memory-card{flex:0 0 calc((100% - 45px)/4);min-width:0}
+.memory-carousel-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:20px auto 0;color:#fff}
+.memory-carousel-controls>button{display:grid;place-items:center;min-width:40px;height:40px;padding:0 12px;border:1px solid rgba(255,255,255,.38);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:22px;cursor:pointer;transition:background .2s,transform .2s}
+.memory-carousel-controls>button:hover,.memory-carousel-controls>button:focus-visible{background:#c8343b;transform:translateY(-2px);outline:2px solid #fff;outline-offset:2px}
+.memory-carousel-dots{display:flex;align-items:center;justify-content:center;gap:8px}
+.memory-carousel-dots button{width:9px;height:9px;padding:0;border:0;border-radius:10px;background:rgba(255,255,255,.45);cursor:pointer;transition:width .25s,background .25s}
+.memory-carousel-dots button.is-active{width:25px;background:#fff}
+.memory-carousel-status{min-width:52px;font-size:13px;color:#e4eee5;font-variant-numeric:tabular-nums}
+.memory-collage-card img{object-fit:cover}
+@media(max-width:1000px){.memory-carousel .memory-card{flex-basis:calc((100% - 30px)/3)}}
+@media(max-width:760px){.memory-carousel .memory-card{flex-basis:calc((100% - 15px)/2)}}
+@media(max-width:520px){.memory-carousel .history-gallery{gap:10px}.memory-carousel .memory-card{flex-basis:calc((100% - 10px)/2)}.memory-carousel-controls{gap:8px}.memory-carousel-status{display:none}}
+@media(prefers-reduced-motion:reduce){.memory-carousel .history-gallery{transition:none}}

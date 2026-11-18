@@ -332,6 +332,7 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
 /* Navegación desplegable: estructura y contenido propios de Eloy Alfaro. */
 .site-header .main-nav .nav-dropdown{position:relative;flex:0 0 auto;margin:0;padding:0}
 .site-header .main-nav .nav-dropdown>summary{position:relative;display:flex;align-items:center;gap:8px;padding:10px 0;color:#45554d;font:700 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.035em;white-space:nowrap;list-style:none;cursor:pointer;transition:color .2s ease}
+.site-header .main-nav .nav-dropdown>summary>a{padding:0!important;border:0!important;background:none!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-decoration:none!important;white-space:inherit!important}
 .site-header .main-nav .nav-dropdown>summary::-webkit-details-marker{display:none}
 .site-header .main-nav .nav-dropdown>summary::after{content:"";width:7px;height:7px;margin-top:-4px;border-right:1.5px solid #c4363e;border-bottom:1.5px solid #c4363e;transform:rotate(45deg);transition:transform .2s ease,margin .2s ease}
 .site-header .main-nav .nav-dropdown[open]>summary::after{margin-top:4px;transform:rotate(225deg)}
@@ -489,6 +490,7 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
 }
 .site-header .main-nav .nav-submenu a:not(:last-child){border-bottom:1px solid #e5e9e5!important}
 .site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible,.site-header .main-nav .nav-submenu a:active{padding-left:14px!important}
+.site-header .main-nav .nav-submenu a[href="basica-superior.html"]{white-space:nowrap!important;font-size:14px!important;letter-spacing:-.02em!important}
 
 /* El menú y la cuadrícula del encabezado usan las mismas reglas en todas las páginas. */
 .site-header .main-nav a.evaluation-nav-link{
