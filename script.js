@@ -8,34 +8,8 @@ if (siteHeaderSpacer) {
   siteHeaderSpacer.setAttribute('aria-hidden', 'true');
   siteHeader.after(siteHeaderSpacer);
 }
-const closeOpenDropdowns = (except = null) => {
-  navigation?.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-    if (dropdown !== except) dropdown.removeAttribute('open');
-  });
-};
-navigation?.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-  dropdown.addEventListener('toggle', () => {
-    if (dropdown.open) closeOpenDropdowns(dropdown);
-  });
-
-  // En equipos con mouse, abre el submenú al entrar y ciérralo al salir.
-  // En pantallas táctiles se conserva el comportamiento nativo por clic.
-  dropdown.addEventListener('pointerenter', (event) => {
-    if (event.pointerType === 'touch' || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    closeOpenDropdowns(dropdown);
-    dropdown.setAttribute('open', '');
-  });
-  dropdown.addEventListener('pointerleave', (event) => {
-    if (event.pointerType === 'touch' || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    dropdown.removeAttribute('open');
-  });
-});
-document.addEventListener('click', (event) => {
-  if (!navigation?.contains(event.target) && !menuButton?.contains(event.target)) closeOpenDropdowns();
-});
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
-  closeOpenDropdowns();
   if (navigation?.classList.contains('open')) {
     navigation.classList.remove('open');
     menuButton?.setAttribute('aria-expanded', 'false');
@@ -55,6 +29,22 @@ document.querySelectorAll('.inner-hero').forEach((hero) => {
   const photo = hero.querySelector(':scope > img');
   if (photo?.src) hero.style.setProperty('--hero-photo-backdrop', `url("${photo.currentSrc || photo.src}")`);
 });
+const institutionPhotoSection = document.querySelector('.page-inicio #institucion');
+const institutionPhotoScene = institutionPhotoSection?.querySelector('.institution-photo-scene');
+const institutionPhotoEnd = document.querySelector('.page-inicio #oferta');
+const updateInstitutionPhotoPin = () => {
+  if (!institutionPhotoSection || !institutionPhotoScene || !institutionPhotoEnd) return;
+  const scrollY = window.scrollY;
+  const sectionTop = institutionPhotoSection.getBoundingClientRect().top + scrollY;
+  const endTop = institutionPhotoEnd.getBoundingClientRect().top + scrollY;
+  institutionPhotoScene.classList.toggle('is-photo-pinned', scrollY + window.innerHeight >= sectionTop && scrollY < endTop);
+  institutionPhotoScene.classList.toggle('is-photo-ended', scrollY >= endTop);
+};
+if (institutionPhotoScene) {
+  updateInstitutionPhotoPin();
+  window.addEventListener('scroll', updateInstitutionPhotoPin, { passive: true });
+  window.addEventListener('resize', updateInstitutionPhotoPin, { passive: true });
+}
 const photoSections = [...document.querySelectorAll('main > section:not(.hero):not(.inner-hero)')].filter((section) => {
   const photo = section.querySelector('img[src]');
   if (!photo?.src) return false;
@@ -62,6 +52,41 @@ const photoSections = [...document.querySelectorAll('main > section:not(.hero):n
   section.classList.add('scroll-photo-section');
   return true;
 });
+if (document.body.classList.contains('page-inicio')) {
+  photoSections.forEach((section) => section.classList.remove('scroll-photo-section'));
+  photoSections.length = 0;
+}
+const pinBackdropSections = [
+  { section: document.querySelector('.page-inicio .photo-only-stage'), end: document.querySelector('.page-inicio #vida'), reverseStart: document.querySelector('.page-inicio #oferta'), image: 'assets/feria-proyectos.jpg', endBeforeViewport: true },
+  { section: document.querySelector('.page-inicio #contacto'), end: document.querySelector('.page-inicio .site-footer'), image: 'assets/feria-proyectos.jpg' }
+].filter(({ section, end, image }) => {
+  if (document.body.classList.contains('page-inicio') || !section || !end || !image) return false;
+  section.style.setProperty('--pin-photo-url', `url("${image}")`);
+  section.classList.add('pin-backdrop-section');
+  return true;
+});
+let previousPinScrollY = window.scrollY;
+const updatePinBackdrops = () => {
+  const scrollY = window.scrollY;
+  const scrollingDown = scrollY >= previousPinScrollY;
+  previousPinScrollY = scrollY;
+  pinBackdropSections.forEach((pin) => {
+    const { section, end } = pin;
+    const startTop = section.getBoundingClientRect().top + scrollY;
+    const endTop = end.getBoundingClientRect().top + scrollY - (pin.endBeforeViewport ? window.innerHeight : 0);
+    const startTopVisible = scrollY + window.innerHeight >= startTop;
+    const reverseStartTop = pin.reverseStart ? pin.reverseStart.getBoundingClientRect().top + scrollY : startTop - window.innerHeight;
+    const active = pin.reverseStart
+      ? (scrollingDown ? startTopVisible && scrollY < endTop : scrollY >= reverseStartTop && scrollY < endTop)
+      : startTopVisible && scrollY < endTop;
+    section.classList.toggle('pin-backdrop-active', active);
+  });
+};
+if (pinBackdropSections.length) {
+  updatePinBackdrops();
+  window.addEventListener('scroll', updatePinBackdrops, { passive: true });
+  window.addEventListener('resize', updatePinBackdrops, { passive: true });
+}
 const replayHeroEntrance = () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.body.classList.remove('hero-play');
@@ -74,7 +99,7 @@ navigation?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', (event) => {
     const destination = new URL(link.href, location.href);
     const destinationPage = destination.pathname.split('/').pop() || 'index.html';
-    if (destinationPage === currentPage && !destination.hash) {
+    if (destination.origin === location.origin && destinationPage === currentPage && !destination.hash) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       replayHeroEntrance();
@@ -248,12 +273,68 @@ if (memoryCarousel) {
   }
   start();
 }
-const currentPage = location.pathname.split('/').pop() || 'index.html';
-const offerPages = ['inicial.html', 'basica-elemental.html', 'basica-media.html', 'basica-superior.html', 'bachillerato-ciencias.html', 'bachillerato-soporte-tecnico.html'];
-const activePage = offerPages.includes(currentPage) ? 'oferta-educativa.html' : currentPage;
-navigation?.querySelectorAll(`a[href="${activePage}"]`).forEach((link) => link.classList.add('active'));
-navigation?.querySelectorAll(`a[href="${activePage}"]`).forEach((link) => link.setAttribute('aria-current', 'page'));
-
+const offerPages = ['inicial.html', 'basica-elemental.html', 'basica-media.html', 'basica-superior.html', 'bachillerato-ciencias.html', 'bachillerato-soporte-tecnico.html', 'primero-basica.html', 'segundo-basica.html', 'tercero-basica.html', 'cuarto-basica.html', 'quinto-basica.html', 'sexto-basica.html', 'septimo-basica.html', 'octavo-basica.html', 'noveno-basica.html', 'decimo-basica.html', 'primero-bachillerato-ciencias.html', 'segundo-bachillerato-ciencias.html', 'tercero-bachillerato-ciencias.html', 'primero-bachillerato-tecnico.html', 'segundo-bachillerato-tecnico.html', 'tercero-bachillerato-tecnico.html'];
+const navigationLinks = [...(navigation?.querySelectorAll('a[href]') || [])];
+const pageName = (pathname) => pathname.split('/').pop() || 'index.html';
+const updateActiveNavigation = () => {
+  navigationLinks.forEach((link) => {
+    link.classList.remove('active');
+    link.removeAttribute('aria-current');
+    link.closest('.nav-dropdown')?.classList.remove('has-active');
+  });
+  const currentName = pageName(location.pathname);
+  const currentHash = location.hash;
+  let activeLink = navigationLinks.find((link) => {
+    const target = new URL(link.href, location.href);
+    return pageName(target.pathname) === currentName && target.hash === currentHash;
+  });
+  if (!activeLink && !currentHash) {
+    activeLink = navigationLinks.find((link) => {
+      const target = new URL(link.href, location.href);
+      return pageName(target.pathname) === currentName && !target.hash;
+    });
+  }
+  if (!activeLink && offerPages.includes(currentName)) {
+    activeLink = navigationLinks.find((link) => pageName(new URL(link.href, location.href).pathname) === 'oferta-educativa.html');
+  }
+  if (!activeLink) return;
+  activeLink.classList.add('active');
+  activeLink.setAttribute('aria-current', 'page');
+  activeLink.closest('.nav-dropdown')?.classList.add('has-active');
+};
+updateActiveNavigation();
+window.addEventListener('hashchange', updateActiveNavigation);
+navigation?.querySelectorAll('.nav-submenu a').forEach((link) => {
+  link.addEventListener('click', () => {
+    const dropdown = link.closest('.nav-dropdown');
+    dropdown?.removeAttribute('open');
+    dropdown?.classList.add('submenu-closing');
+  });
+});
+navigation?.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+  dropdown.addEventListener('mouseenter', () => {
+    dropdown.classList.remove('submenu-closing');
+    dropdown.setAttribute('open', '');
+  });
+  dropdown.addEventListener('mouseleave', () => {
+    dropdown.removeAttribute('open');
+    dropdown.classList.remove('submenu-closing');
+  });
+  dropdown.addEventListener('pointerleave', () => dropdown.classList.remove('submenu-closing'));
+});
+const homeNavLink = navigation?.querySelector('a[href="index.html"]');
+if (homeNavLink) {
+  try {
+    if (sessionStorage.getItem('nav-home-clicked') === '1') {
+      homeNavLink.classList.add('home-clicked');
+      sessionStorage.removeItem('nav-home-clicked');
+    }
+  } catch {}
+  homeNavLink.addEventListener('click', () => {
+    homeNavLink.classList.add('home-clicked');
+    try { sessionStorage.setItem('nav-home-clicked', '1'); } catch {}
+  });
+}
 const newsCollage = document.querySelector('[data-news-collage]');
 if (newsCollage) {
   const slides = [...newsCollage.querySelectorAll('.news-collage-slide')];
@@ -290,61 +371,44 @@ if (newsCollage) {
   startNewsAutoplay();
 }
 
-// El acceso permanece en mantenimiento hasta que el sistema esté listo.
-const evaluationLinks = document.querySelectorAll('[data-evaluation-link]');
-if (evaluationLinks.length) {
-  const maintenanceDialog = document.createElement('dialog');
-  maintenanceDialog.className = 'evaluation-maintenance-dialog';
-  maintenanceDialog.setAttribute('aria-labelledby', 'evaluation-maintenance-title');
-  const dialogContent = document.createElement('div');
-  dialogContent.className = 'evaluation-maintenance-content';
-  const dialogMark = document.createElement('span');
-  dialogMark.className = 'evaluation-maintenance-mark';
-  dialogMark.setAttribute('aria-hidden', 'true');
-  dialogMark.textContent = '✦';
-  const dialogTitle = document.createElement('h2');
-  dialogTitle.id = 'evaluation-maintenance-title';
-  dialogTitle.textContent = 'Estamos en mantenimiento';
-  const dialogMessage = document.createElement('p');
-  dialogMessage.textContent = 'El acceso a Evaluación de Exámenes de Grado estará disponible próximamente. Gracias por tu comprensión.';
-  const closeButton = document.createElement('button');
-  closeButton.className = 'evaluation-maintenance-close';
-  closeButton.type = 'button';
-  closeButton.textContent = 'Entendido';
-  closeButton.addEventListener('click', () => maintenanceDialog.close());
-  dialogContent.append(dialogMark, dialogTitle, dialogMessage, closeButton);
-  maintenanceDialog.append(dialogContent);
-  document.body.append(maintenanceDialog);
-
-  evaluationLinks.forEach((link) => {
-    link.title = 'El acceso estará disponible próximamente';
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (!maintenanceDialog.open) maintenanceDialog.showModal();
-    });
-  });
-}
-
 // Contadores informativos y visitas estimadas para el sitio estático.
 (() => {
-  document.querySelectorAll('[data-impact-number]').forEach((node) => {
-    const target = Number(node.dataset.impactNumber);
-    if (!Number.isFinite(target)) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      node.textContent = new Intl.NumberFormat('es-EC').format(target);
-      return;
-    }
-    const duration = 1100;
-    const start = performance.now();
-    const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      node.textContent = new Intl.NumberFormat('es-EC').format(Math.round(target * eased));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
+  const impactNodes = [...document.querySelectorAll('[data-impact-number]')];
+  const impactFrames = new WeakMap();
+  const impactObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const node = entry.target;
+      const previousFrame = impactFrames.get(node);
+      if (previousFrame) cancelAnimationFrame(previousFrame);
+      if (!entry.isIntersecting) {
+        node.textContent = '0';
+        impactFrames.delete(node);
+        return;
+      }
+      const target = Number(node.dataset.impactNumber);
+      if (!Number.isFinite(target)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        node.textContent = new Intl.NumberFormat('es-EC').format(target);
+        return;
+      }
+      node.textContent = '0';
+      const duration = 2200;
+      let startTime = 0;
+      const tick = (now) => {
+        if (!startTime) startTime = now;
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        node.textContent = new Intl.NumberFormat('es-EC').format(Math.round(target * eased));
+        if (progress < 1) impactFrames.set(node, requestAnimationFrame(tick));
+        else impactFrames.delete(node);
+      };
+      impactFrames.set(node, requestAnimationFrame(tick));
+    });
+  }, { threshold: 0.3 });
+  impactNodes.forEach((node) => {
+    node.textContent = '0';
+    impactObserver.observe(node);
   });
-
   const visitNodes = [...document.querySelectorAll('[data-site-visits]')];
   if (!visitNodes.length) return;
   const namespace = 'ueeloyalfaro-web';
@@ -369,3 +433,20 @@ if (evaluationLinks.length) {
     })
     .catch(() => visitNodes.forEach((node) => { node.textContent = '—'; }));
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

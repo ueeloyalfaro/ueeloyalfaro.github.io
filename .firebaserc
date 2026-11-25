@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "unidad-educativa-eloy-alfaro"
+  },
+  "targets": {
+    "unidad-educativa-eloy-alfaro": {
+      "hosting": {
+        "principal": [
+          "unidad-educativa-eloy-alfaro"
+        ],
+        "corto": [
+          "ueeloyalfaro"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

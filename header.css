@@ -329,16 +329,17 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
   .evaluation-maintenance-content p { font-size: 15px; }
 }
 
-/* Navegación desplegable: estructura y contenido propios de Eloy Alfaro. */
+/* Menús desplegables: resaltado claro y lista vertical como en la referencia. */
 .site-header .main-nav .nav-dropdown{position:relative;flex:0 0 auto;margin:0;padding:0}
-.site-header .main-nav .nav-dropdown>summary{position:relative;display:flex;align-items:center;gap:8px;padding:10px 0;color:#45554d;font:700 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.035em;white-space:nowrap;list-style:none;cursor:pointer;transition:color .2s ease}
+.site-header .main-nav .nav-dropdown>summary{position:relative;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;color:#45554d;font:700 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.035em;white-space:nowrap;list-style:none;cursor:pointer;transition:color .2s ease,background-color .2s ease,box-shadow .2s ease}
 .site-header .main-nav .nav-dropdown>summary>a{padding:0!important;border:0!important;background:none!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-decoration:none!important;white-space:inherit!important}
+.site-header .main-nav .nav-dropdown>summary>a::after{display:none!important}
 .site-header .main-nav .nav-dropdown>summary::-webkit-details-marker{display:none}
-.site-header .main-nav .nav-dropdown>summary::after{content:"";width:7px;height:7px;margin-top:-4px;border-right:1.5px solid #c4363e;border-bottom:1.5px solid #c4363e;transform:rotate(45deg);transition:transform .2s ease,margin .2s ease}
+.site-header .main-nav .nav-dropdown>summary::after{content:"";width:7px;height:7px;flex:0 0 7px;margin-top:-4px;border-right:1.5px solid #c4363e;border-bottom:1.5px solid #c4363e;transform:rotate(45deg);transition:transform .2s ease,margin .2s ease}
 .site-header .main-nav .nav-dropdown[open]>summary::after{margin-top:4px;transform:rotate(225deg)}
-.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,.site-header .main-nav .nav-dropdown:focus-within>summary{color:#145332}
-.site-header .main-nav .nav-dropdown>summary:focus-visible{outline:3px solid #d9e98b;outline-offset:5px;border-radius:3px}
-.site-header .main-nav .nav-submenu{position:absolute;z-index:90;top:100%;left:-18px;display:none;grid-template-columns:repeat(2,minmax(145px,1fr));gap:4px;width:max-content;max-width:min(520px,80vw);padding:12px;border:1px solid #e2eadf;border-top:4px solid #c4363e;border-radius:0 0 12px 12px;background:#fff;box-shadow:0 18px 38px #0d302421;animation:submenu-arrive .22s ease both}
+.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,.site-header .main-nav .nav-dropdown:focus-within>summary{background:#edf5eb;color:#145332;box-shadow:inset 0 0 0 1px #d9e8dc}
+.site-header .main-nav .nav-dropdown>summary:focus-visible{outline:3px solid #d9e98b;outline-offset:3px}
+.site-header .main-nav .nav-submenu{position:absolute;z-index:90;top:100%;left:-6px;display:none;grid-template-columns:1fr;gap:4px;width:min(310px,80vw);max-width:80vw;padding:10px;border:1px solid #e2eadf;border-top:4px solid #c4363e;border-radius:0 0 12px 12px;background:#fff;box-shadow:0 18px 38px #0d302421;animation:submenu-arrive .22s ease both}
 .site-header .main-nav .nav-dropdown[open]>.nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu,.site-header .main-nav .nav-dropdown:focus-within>.nav-submenu{display:grid}
 .site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{display:flex!important;align-items:center;min-height:42px;padding:10px 12px!important;border:0!important;border-radius:7px!important;background:transparent!important;color:#30473b!important;font:600 14px/1.3 Arial,Helvetica,sans-serif!important;letter-spacing:0!important;white-space:normal!important;transition:background .18s ease,color .18s ease,transform .18s ease!important}
 .site-header .main-nav .nav-submenu a::after{display:none!important}
@@ -347,13 +348,13 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
 @media(min-width:1281px) and (max-width:1380px){.site-header .main-nav .nav-dropdown>summary{font-size:10px;letter-spacing:.015em}}
 @media(max-width:1360px){
   .site-header .main-nav .nav-dropdown{width:100%;flex:0 0 auto}
-  .site-header .main-nav .nav-dropdown>summary{width:100%;min-height:40px;padding:10px 0;font-size:13px}
+  .site-header .main-nav .nav-dropdown>summary{width:100%;min-height:40px;padding:10px 12px;font-size:13px}
   .site-header .main-nav .nav-dropdown>summary::after{margin-left:4px}
-  .site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{position:static;width:100%;max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));margin:2px 0 7px;padding:7px;border:1px solid #e2eadf;border-top:3px solid #c4363e;border-radius:0 0 9px 9px;box-shadow:none;animation:submenu-arrive .2s ease both}
+  .site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{position:static;width:100%;max-width:none;grid-template-columns:1fr;margin:2px 0 7px;padding:7px;border:1px solid #e2eadf;border-top:3px solid #c4363e;border-radius:0 0 9px 9px;box-shadow:none;animation:submenu-arrive .2s ease both}
   .site-header .main-nav .nav-dropdown:not([open])>.nav-submenu{display:none}
   .site-header .main-nav .nav-dropdown[open]>.nav-submenu{display:grid}
 }
-@media(max-width:480px){.site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{grid-template-columns:1fr}.site-header .main-nav .nav-submenu a{min-height:38px}}
+@media(max-width:480px){.site-header .main-nav .nav-submenu a{min-height:38px}}
 @media(prefers-reduced-motion:reduce){.site-header .main-nav .nav-dropdown>summary::after,.site-header .main-nav .nav-submenu,.site-header .main-nav .nav-submenu a{animation:none!important;transition:none!important}}
 
 /* Fotografía propia como fondo suave de las portadas interiores, sin sustituir la foto protagonista. */
@@ -365,27 +366,6 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
 @media(max-width:760px){.inner-hero::after{background-attachment:scroll;opacity:.45}}
 @media(prefers-reduced-motion:reduce){.inner-hero::after{background-attachment:scroll;filter:none}}
 
-/* Menús desplegables verticales, visibles y táctiles. */
-.site-header .main-nav .nav-submenu{grid-template-columns:1fr!important;min-width:280px;width:300px;max-width:min(88vw,360px);padding:9px;background:linear-gradient(155deg,#145332,#0e432c);border:1px solid #2a8555;border-top:4px solid #c4363e;border-radius:0 0 12px 12px;box-shadow:0 18px 38px #0d302448}
-.site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{display:flex!important;min-height:43px;padding:10px 13px!important;border-radius:7px!important;color:#fff!important;font-size:14px!important}
-.site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible{background:#c4363e!important;color:#fff!important;box-shadow:0 6px 14px #090f0b30;transform:translateX(2px)}
-.site-header .main-nav .nav-dropdown:nth-of-type(1)>summary{padding:10px 8px;border-radius:7px;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
-.site-header .main-nav .nav-dropdown:nth-of-type(2)>summary{padding:10px 8px;border-radius:7px;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
-.site-header .main-nav .nav-dropdown:nth-of-type(1)>summary:hover,.site-header .main-nav .nav-dropdown:nth-of-type(1)[open]>summary{background:#c4363e;color:#fff;box-shadow:0 6px 16px #9a28302b;transform:translateY(-1px)}
-.site-header .main-nav .nav-dropdown:nth-of-type(2)>summary:hover,.site-header .main-nav .nav-dropdown:nth-of-type(2)[open]>summary{background:#c4363e;color:#fff;box-shadow:0 6px 16px #9a28302b;transform:translateY(-1px)}
-.site-header .main-nav .nav-dropdown>summary:hover::after,.site-header .main-nav .nav-dropdown[open]>summary::after{border-color:#fff}
-.site-header .main-nav>a:not(.evaluation-nav-link){padding:10px 8px!important;border-radius:7px!important;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease!important}
-.site-header .main-nav>a:not(.evaluation-nav-link):hover,.site-header .main-nav>a:not(.evaluation-nav-link):focus-visible{background:#c4363e!important;color:#fff!important;box-shadow:0 6px 16px #9a28302b;transform:translateY(-1px)}
-.site-header .main-nav>a:not(.evaluation-nav-link):hover::after{display:none!important}
-.site-header .main-nav a.evaluation-nav-link:hover{box-shadow:0 7px 18px #14533230;transform:translateY(-2px)!important}
-.button,.header-cta{position:relative;overflow:hidden;isolation:isolate;transition:transform .25s cubic-bezier(.2,.75,.25,1),box-shadow .25s ease,background-color .25s ease!important}
-.button::after,.header-cta::after{position:absolute;inset:0;z-index:-1;content:"";background:linear-gradient(110deg,transparent 22%,#ffffff45 50%,transparent 78%);transform:translateX(-130%);transition:transform .55s ease}
-.button:hover,.header-cta:hover{transform:translateY(-3px) scale(1.025)!important;box-shadow:0 11px 24px #102c1b35}
-.site-header .header-cta:hover,.site-header .header-cta:active{transform:none!important;box-shadow:0 8px 18px #102c1b24!important}
-.button:hover::after,.header-cta:hover::after{transform:translateX(130%)}
-.button:active,.header-cta:active{transform:translateY(0) scale(.97)!important}
-@media(max-width:1360px){.site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{width:100%;max-width:none;min-width:0;grid-template-columns:1fr!important;margin:2px 0 8px;padding:8px;background:linear-gradient(155deg,#145332,#0e432c)}.site-header .main-nav .nav-dropdown:nth-of-type(1)>summary,.site-header .main-nav .nav-dropdown:nth-of-type(2)>summary{width:100%;padding:10px 8px}}
-@media(max-width:480px){.site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{grid-template-columns:1fr!important}}
 /* Un único encabezado para todas las secciones: marca estable, alineación y altura comunes. */
 .site-header .brand,.site-header .brand img{transform:none!important;scale:1!important;zoom:1!important;animation:none!important}
 @media(max-width:480px){
@@ -422,75 +402,6 @@ html { scroll-padding-top: calc(var(--site-notice-h) + var(--site-header-h) + 12
 @media(max-width:760px){.announcement{padding-right:12px!important;padding-left:12px!important;gap:8px!important}.announcement-message{gap:6px;font-size:8px}.announcement-links{gap:10px}.announcement-links a{font-size:8px}}
 @media(max-width:480px){.announcement{flex-direction:column;justify-content:center!important;gap:3px!important;padding:3px 8px!important}.announcement-message{font-size:8px;line-height:1}.announcement-links{justify-content:center;gap:14px}.announcement-links a{font-size:7.5px}}
 
-/* Ajustes de interacción del menú y mayor legibilidad de la franja superior. */
-:root{--site-notice-h:46px!important}
-.announcement{min-height:var(--site-notice-h)!important;height:var(--site-notice-h)!important;padding-inline:clamp(14px,3vw,38px)!important;gap:clamp(12px,2vw,24px)!important}
-.announcement-message{font-size:clamp(11px,.9vw,13px)!important;letter-spacing:.025em!important}
-.announcement-links{gap:clamp(14px,2vw,24px)!important}
-.announcement-links a{font-size:clamp(11px,.9vw,13px)!important;line-height:1.15!important}
-.announcement-facebook-mark{width:20px!important;height:20px!important;font-size:14px!important}
-@media(max-width:760px){.announcement-message{font-size:10px!important}.announcement-links a{font-size:10px!important}.announcement-facebook-mark{width:18px!important;height:18px!important;font-size:13px!important}}
-@media(max-width:480px){:root{--site-notice-h:56px!important}.announcement{gap:5px!important}.announcement-message{font-size:10px!important}.announcement-links{gap:16px!important}.announcement-links a{font-size:9.5px!important}}
-
-/* Los desplegables abren con el puntero en escritorio y conservan el acceso por teclado. */
-@media(min-width:761px){
-  .site-header .main-nav .nav-dropdown:hover>.nav-submenu,
-  .site-header .main-nav .nav-dropdown:focus-within>.nav-submenu{display:grid!important}
-  .site-header .main-nav .nav-dropdown:hover>summary::after{margin-top:4px;transform:rotate(225deg)}
-  .site-header .main-nav .nav-submenu{grid-template-columns:1fr!important;min-width:280px;width:320px;max-width:min(88vw,380px);gap:0;padding:8px 16px!important;background:#fff!important;border:1px solid #e4e9e4!important;border-top:4px solid #c4363e!important;border-radius:0 0 12px 12px!important;box-shadow:0 18px 38px #0d302421!important}
-  .site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{min-height:44px!important;padding:11px 8px!important;border:0!important;border-bottom:1px solid #e5e9e5!important;border-radius:0!important;background:#fff!important;color:#30473b!important}
-  .site-header .main-nav .nav-submenu a:last-child{border-bottom:0!important}
-  .site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible{background:#f4f8f3!important;color:#145332!important;transform:translateX(3px)}
-  .site-header .main-nav>a:not(.evaluation-nav-link),.site-header .main-nav .nav-dropdown>summary{background-image:linear-gradient(90deg,#c4363e,#c4363e),linear-gradient(270deg,#145332,#145332)!important;background-repeat:no-repeat!important;background-position:left bottom,right bottom!important;background-size:0 3px,0 3px!important;transition:background-size .28s cubic-bezier(.2,.75,.25,1),color .22s ease,transform .22s ease!important}
-  .site-header .main-nav>a:not(.evaluation-nav-link):hover,.site-header .main-nav .nav-dropdown>summary:hover{background-size:52% 3px,52% 3px!important}
-}
-@media(max-width:760px){
-  .site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{background:#fff!important;border-color:#e4e9e4!important;border-top-color:#c4363e!important}
-  .site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{background:#fff!important;color:#30473b!important;border-bottom:1px solid #e5e9e5!important;border-radius:0!important}
-  .site-header .main-nav .nav-submenu a:last-child{border-bottom:0!important}
-  .site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible{background:#f4f8f3!important;color:#145332!important}
-}
-@media(prefers-reduced-motion:reduce){.site-header .main-nav>a:not(.evaluation-nav-link),.site-header .main-nav .nav-dropdown>summary{transition:none!important}}
-
-/* Hover de submenús con el mismo rojo del menú y separadores alineados al texto. */
-@media(min-width:1361px){
-  .site-header .main-nav .nav-submenu{width:max-content!important;min-width:280px!important;max-width:min(88vw,380px)!important}
-}
-.site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{
-  margin-inline:8px!important;padding:11px 0!important;text-align:left!important;
-  transition:background-color .2s ease,color .2s ease,padding-left .2s ease,box-shadow .2s ease!important
-}
-.site-header .main-nav .nav-submenu a:not(:last-child){border-bottom:1px solid #e5e9e5!important}
-.site-header .main-nav .nav-submenu a:hover,
-.site-header .main-nav .nav-submenu a:focus-visible,
-.site-header .main-nav .nav-submenu a:active{
-  padding-left:10px!important;background:#c4363e!important;color:#fff!important;
-  box-shadow:0 5px 12px #9a28302b!important;transform:none!important
-}
-
-/* El desplegable toma el ancho natural de su opción más larga. */
-@media(min-width:761px){
-  .site-header .main-nav .nav-submenu{
-    width:max-content!important;min-width:0!important;max-width:min(88vw,380px)!important;
-    grid-template-columns:max-content!important;padding-inline:12px!important
-  }
-  .site-header .main-nav .nav-submenu a{max-width:calc(88vw - 56px)!important}
-}
-
-/* Ancho uniforme para todos los submenús, tanto con mouse como en móvil. */
-.site-header .main-nav .nav-submenu{
-  width:240px!important;min-width:240px!important;max-width:calc(100vw - 32px)!important;
-  grid-template-columns:minmax(0,1fr)!important
-}
-@media(max-width:760px){.site-header .main-nav .nav-submenu,.site-header .main-nav .nav-dropdown:hover>.nav-submenu{width:240px!important;min-width:240px!important;max-width:100%!important}}
-
-/* El sombreado y los separadores ocupan el mismo ancho útil del submenú. */
-.site-header .main-nav .nav-submenu a,.site-header .main-nav .nav-submenu a.active{
-  box-sizing:border-box!important;width:100%!important;margin-inline:0!important;padding-inline:10px!important
-}
-.site-header .main-nav .nav-submenu a:not(:last-child){border-bottom:1px solid #e5e9e5!important}
-.site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible,.site-header .main-nav .nav-submenu a:active{padding-left:14px!important}
-.site-header .main-nav .nav-submenu a[href="basica-superior.html"]{white-space:nowrap!important;font-size:14px!important;letter-spacing:-.02em!important}
 
 /* El menú y la cuadrícula del encabezado usan las mismas reglas en todas las páginas. */
 .site-header .main-nav a.evaluation-nav-link{
@@ -574,3 +485,48 @@ body.program-detail-page .program-closing-photo .button{background:#c4363e;color
   .site-header .main-nav a, .site-header .main-nav a.active { font-size: 14px !important; }
   .site-header .main-nav a.evaluation-nav-link { font-size: 13px !important; }
 }
+
+/* Navegación: recuperar el acento rojo y el sombreado rojizo de los submenús. */
+.site-header .main-nav>a:hover,.site-header .main-nav>a.active,.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,.site-header .main-nav .nav-dropdown:focus-within>summary{color:#b92532!important;background-color:#fff1f1!important}
+.site-header .main-nav>a:hover::after,.site-header .main-nav>a.active::after{background:#c9363e!important}
+.site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible,.site-header .main-nav .nav-submenu a.active{background:#f2e7e7!important;color:#b92532!important;box-shadow:inset 3px 0 #c9363e!important}
+/* El hover del menú usa el mismo rojo sólido del botón Contáctanos. */
+.site-header .main-nav>a:hover,.site-header .main-nav>a.active,.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,.site-header .main-nav .nav-dropdown:focus-within>summary{background:#a72c35!important;color:#fff!important;box-shadow:0 8px 18px #a72c3540!important}
+.site-header .main-nav>a:hover::after,.site-header .main-nav>a.active::after{background:#fff!important}
+.site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible,.site-header .main-nav .nav-submenu a.active{background:#a72c35!important;color:#fff!important;box-shadow:inset 3px 0 #7d2028!important}
+/* Hover ovalado en los enlaces principales, con el rojo de Contáctanos. */
+.site-header .main-nav>a,.site-header .main-nav .nav-dropdown>summary{border-radius:999px!important}
+.site-header .main-nav>a:hover,.site-header .main-nav>a.active,.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,.site-header .main-nav .nav-dropdown:focus-within>summary{border-radius:999px!important}
+/* Inicio no queda sombreado al cargar; el clic lo deja marcado como los demás. */
+.site-header .main-nav>a[href="index.html"].active:not(.home-clicked):not(:hover):not(:focus-visible){background:transparent!important;color:#45554d!important;box-shadow:none!important}
+.site-header .main-nav>a[href="index.html"].active:not(.home-clicked):not(:hover):not(:focus-visible)::after{width:0!important;background:transparent!important}
+.site-header .main-nav>a[href="index.html"].home-clicked{background:#a72c35!important;color:#fff!important;box-shadow:0 8px 18px #a72c3540!important}
+/* Menú: el elemento activo queda indicado con una línea, sin relleno rojo. */
+.site-header .main-nav>a.active,
+.site-header .main-nav>a.home-clicked,
+.site-header .main-nav .nav-submenu a.active{background:transparent!important;color:#a72c35!important;box-shadow:none!important}
+.site-header .main-nav>a.active::after{width:24px!important;background:#a72c35!important}
+.site-header .main-nav .nav-submenu a.active{text-decoration:underline!important;text-decoration-color:#a72c35!important;text-decoration-thickness:2px!important;text-underline-offset:4px!important;transform:none!important}
+.site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible{background:#a72c35!important;color:#fff!important;box-shadow:inset 3px 0 #7d2028!important}
+@media(hover:hover){.site-header .main-nav .nav-dropdown:hover>.nav-submenu,.site-header .main-nav .nav-dropdown:focus-within>.nav-submenu{display:grid!important}}
+/* En el menú compacto, el estado cerrado tenía más especificidad que hover y ocultaba la lista. */
+@media(hover:hover){.site-header .main-nav .nav-dropdown:not([open]):hover>.nav-submenu,.site-header .main-nav .nav-dropdown:not([open]):focus-within>.nav-submenu{display:grid!important}}
+
+/* El menú activo queda subrayado; el enlace Oferta mantiene su navegación al clic. */
+.site-header .main-nav>a.active,
+.site-header .main-nav>a.home-clicked{background:transparent!important;color:#a72c35!important;box-shadow:none!important}
+.site-header .main-nav>a.active::after{width:24px!important;background:#a72c35!important}
+.site-header .main-nav>a[href="index.html"].home-clicked{background:transparent!important;color:#a72c35!important;box-shadow:none!important}
+.site-header .main-nav .nav-submenu a.active{background:transparent!important;color:#a72c35!important;box-shadow:none!important;text-decoration:underline!important;text-decoration-color:#a72c35!important;text-decoration-thickness:2px!important;text-underline-offset:4px!important;transform:none!important}
+.site-header .main-nav .nav-dropdown>summary:has(>a.active){background:transparent!important;color:#a72c35!important;box-shadow:none!important}
+.site-header .main-nav .nav-dropdown>summary:has(>a.active)::before{position:absolute;right:24px;bottom:3px;left:12px;height:2px;background:#a72c35;content:""}
+/* Los submenús se cierran tras elegir una opción y marcan la sección activa. */
+.site-header .main-nav .nav-dropdown.submenu-closing>.nav-submenu{display:none!important}
+.site-header .main-nav .nav-dropdown.has-active>summary{background:transparent!important;color:#a72c35!important;box-shadow:none!important}
+.site-header .main-nav .nav-dropdown.has-active>summary::before{position:absolute;right:24px;bottom:3px;left:12px;height:2px;background:#a72c35;content:""}
+/* Mantener el sombreado de interacción al pasar el puntero por un elemento activo. */
+.site-header .main-nav>a.active:hover,.site-header .main-nav>a.home-clicked:hover{background:#a72c35!important;color:#fff!important;box-shadow:0 8px 18px #a72c3540!important}
+.site-header .main-nav>a.active:hover::after{background:#fff!important}
+.site-header .main-nav .nav-dropdown.has-active>summary:hover,.site-header .main-nav .nav-dropdown.has-active[open]>summary{background:#a72c35!important;color:#fff!important;box-shadow:0 8px 18px #a72c3540!important}
+.site-header .main-nav .nav-dropdown.has-active>summary:hover::before,.site-header .main-nav .nav-dropdown.has-active[open]>summary::before{background:#fff!important}
+.site-header .main-nav .nav-submenu a.active:hover{background:#a72c35!important;color:#fff!important;box-shadow:inset 3px 0 #7d2028!important;text-decoration-color:#fff!important}

@@ -260,6 +260,7 @@ body{font-size:16px}
 .site-footer .back-top span{color:#d8ee8e;font-size:20px;line-height:1}
 .site-footer .back-top:hover{transform:translateY(-2px);border-color:#20a85b;background:#145332}
 .site-footer .copyright{max-width:1280px;margin:0 auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);color:#b7c7bc;font-size:11px}
+.site-footer .copyright .site-credit{display:block;width:100%;max-width:760px;text-align:center;color:#d8ee8e;font-size:11px;line-height:1.65}
 @media(max-width:900px){.site-footer .footer-top{grid-template-columns:1fr 1fr;gap:26px}.site-footer .footer-about{grid-column:1/-1}.site-footer .back-top{justify-self:start}}
 @media(max-width:500px){.site-footer{padding:32px 6% 20px}.site-footer .footer-top{grid-template-columns:1fr;gap:22px}.site-footer .footer-about{grid-column:auto}.site-footer .back-top{justify-self:start}}
 
@@ -666,6 +667,40 @@ main .value-card p,main .news-body p{font-size:16px;line-height:1.7}
 /* Institución: actualizamos solo los contenidos posteriores a la portada principal. */
 .page-institucion .identity-content{background:#fff}
 .page-institucion #principios{padding:38px 30px;border-radius:18px;background:linear-gradient(130deg,#fff3ef,#fffaf8)}
+
+/* Inicio: fondo parallax y contenido que se apila sobre la fotografía. */
+.page-inicio #institucion{position:relative;isolation:isolate;display:block;min-height:0;padding:0 0 78px;overflow:visible;background:transparent}
+.page-inicio #institucion .institution-photo-scene{position:sticky;top:calc(var(--site-notice-h,46px) + 100px);z-index:0;width:100%;height:calc(100vh - var(--site-notice-h,46px) - 100px);min-height:400px;margin:0 0 -70px;overflow:hidden;background:#183d2b}
+.page-inicio #institucion .institution-photo-scene img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 46%;transform:scale(1.045);filter:brightness(.97);transition:transform 1.1s cubic-bezier(.2,.75,.25,1),filter .8s ease}
+.page-inicio #institucion.photo-in-view .institution-photo-scene img{transform:scale(1);filter:brightness(1)}
+.page-inicio #institucion .section-wrap{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+.page-inicio #institucion .about-grid{grid-template-columns:minmax(0,760px);justify-content:flex-start;padding:clamp(28px,5vw,58px);border:1px solid #ffffffb8;border-radius:20px;background:rgba(248,250,247,.94);box-shadow:0 24px 60px #0a281b26;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.page-inicio #institucion.scroll-photo-section::before,
+.page-inicio .values.scroll-photo-section::before,
+.page-inicio #contacto.scroll-photo-section::before{display:none!important}
+.page-inicio .values.section{position:relative;z-index:2;margin-top:-38px;padding-top:clamp(78px,8vw,112px);border-radius:22px 22px 0 0;background:#f8faf7}
+.page-inicio .values .center-head .section-kicker{color:#c4363e}
+.page-inicio .values .center-head h2{color:#145332}
+.page-inicio #vida.section{background:#f1f6f1;color:#263b30}
+.page-inicio #vida h2{color:#145332}
+.page-inicio #vida .section-kicker{color:#c4363e}
+.page-inicio #vida .life-point{border-bottom-color:#dce7de;color:#263b30}
+.page-inicio #vida .life-point:hover{background:#e6efe7}
+.page-inicio #vida .life-point b{color:#c4363e}
+.page-inicio #vida .life-point-copy>span:not(.life-point-link){color:#5f6f65}
+.page-inicio #vida .life-point .life-point-link{color:#145332}
+.page-inicio .home-photo-transition{position:relative;display:block;width:calc(100% + 14vw);height:clamp(340px,48vw,600px);margin:54px -7vw 0;padding:0!important;overflow:hidden;isolation:isolate;background:#142a20}
+.page-inicio .home-photo-transition img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:brightness(.93) saturate(1.04);transform:scale(1.07);transition:transform 1.1s cubic-bezier(.2,.75,.25,1),filter 1.1s ease}
+.page-inicio .home-photo-transition.is-visible img{transform:scale(1);filter:brightness(1) saturate(1.04)}
+.page-inicio .home-photo-transition::after{position:absolute;inset:58% 0 0;content:"";background:linear-gradient(0deg,rgba(8,30,20,.3),transparent);pointer-events:none}
+.page-inicio #vida.scroll-photo-section::before{background-image:linear-gradient(135deg,rgba(241,246,241,.64),rgba(241,246,241,.78)),var(--scroll-photo-backdrop);background-position:center;background-size:cover;filter:none;mix-blend-mode:normal;opacity:0;transition:opacity .85s ease,background-position 1.2s ease}
+.page-inicio #vida.scroll-photo-section.photo-in-view::before{opacity:1}
+.page-inicio #contacto .contact-photo.reveal:not(.is-visible) img{clip-path:inset(100% 0 0);transform:scale(1.04)}
+.page-inicio #contacto .contact-photo.reveal.is-visible img{clip-path:inset(0);transform:scale(1)}
+.page-inicio #contacto .contact-photo img{transition:clip-path .9s cubic-bezier(.2,.75,.25,1),transform .9s cubic-bezier(.2,.75,.25,1)}
+@media(max-width:760px){.page-inicio #institucion .institution-photo-scene{top:calc(var(--site-notice-h,56px) + 86px);height:calc(100svh - var(--site-notice-h,56px) - 86px);min-height:360px;margin-bottom:-42px}.page-inicio #institucion .about-grid{padding:25px 22px}.page-inicio .home-photo-transition{width:calc(100% + 12vw);height:clamp(310px,68vw,460px);margin:44px -6vw 0}.page-inicio #vida.scroll-photo-section::before{background-attachment:scroll}}
+@media(max-width:500px){.page-inicio #institucion .institution-photo-scene{min-height:340px;margin-bottom:-24px}.page-inicio .home-photo-transition{height:330px}}
+@media(prefers-reduced-motion:reduce){.page-inicio #institucion .institution-photo-scene img{transition:none!important;transform:none!important}.page-inicio #contacto .contact-photo img,.page-inicio .home-photo-transition img{clip-path:none!important;transform:none!important;transition:none!important}}
 .page-institucion #politicas{padding:38px 30px;border-radius:18px;background:linear-gradient(130deg,#eef7ef,#f8fbf8)}
 .page-institucion .values-block{padding:42px 30px;border-radius:18px;background:linear-gradient(130deg,#b92532,#d23b43)}
 .page-institucion .values-block>.section-kicker,.page-institucion .values-block>h2,.page-institucion .values-block>h2 em{color:#fff}
@@ -920,3 +955,181 @@ main li{font-size:max(16px,1.04em)!important;line-height:1.65}
 .page-novedades .news-poster .latest-news-lead a{color:#147843;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.page-novedades .news-poster .latest-news-lead>img.news-poster-image{min-height:0;max-height:650px}}
 @media(max-width:480px){.page-novedades .news-poster .latest-news-lead>img.news-poster-image{max-height:560px}}
+.class-schedules{margin:clamp(3rem,7vw,6rem) auto;max-width:1240px;padding:clamp(1.25rem,4vw,3rem);border:1px solid rgba(23,72,55,.14);border-radius:28px;background:linear-gradient(145deg,#f7fbf7,#fff);box-shadow:0 18px 50px rgba(20,52,40,.07)}
+.schedule-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin:1rem 0 2rem}.schedule-intro h2{margin:.35rem 0 .65rem;font-size:clamp(1.8rem,3vw,2.8rem);color:#173d30}.schedule-intro p{max-width:700px;color:#586a61;line-height:1.65}.schedule-year{flex:none;padding:.7rem 1rem;border:1px solid #d1e5d7;border-radius:999px;color:#246346;font-weight:700;background:#edf7ef}.schedule-list{display:grid;gap:1rem}.schedule-card{overflow:hidden;border:1px solid #d9e3dc;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(27,61,45,.045)}.schedule-card>summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.35rem;cursor:pointer;list-style:none;color:#193e31;font-size:1.08rem;font-weight:750}.schedule-card>summary::-webkit-details-marker{display:none}.schedule-card>summary:hover{background:#f4faf5}.schedule-toggle{display:grid;width:2rem;height:2rem;place-items:center;border-radius:50%;background:#e8f4eb;color:#24714d;font-size:1.2rem}.schedule-card[open] .schedule-toggle{transform:rotate(45deg)}.schedule-card-content{padding:0 1.3rem 1.3rem}.schedule-day-caption{display:flex;justify-content:space-between;gap:1rem;margin:.25rem 0 1rem;color:#315c47;font-weight:700}.schedule-day-caption span{color:#6a776f;font-size:.9rem;font-weight:500}.schedule-table-wrap{overflow-x:auto;border:1px solid #e1e8e3;border-radius:14px}.schedule-table{width:100%;border-collapse:collapse}.schedule-table th,.schedule-table td{padding:.85rem 1rem;border-bottom:1px solid #e8eee9;text-align:left;vertical-align:top}.schedule-table thead{background:#eff7f0;color:#234d36}.schedule-table tbody th{width:140px;color:#315b43;background:#fbfdfb}.schedule-table tbody tr:last-child th,.schedule-table tbody tr:last-child td{border-bottom:0}.schedule-subjects{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}.schedule-subjects li{max-width:100%;padding:.45rem .65rem;border:1px solid #e0ebe2;border-radius:9px;background:#f8fbf8;color:#374b3d;font-size:.9rem;line-height:1.45;overflow-wrap:anywhere}.schedule-no-entries{color:#7a877e;font-size:.9rem;font-style:italic}.schedule-materials{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;margin-top:1.1rem;padding:1.1rem 1.2rem;border-radius:14px;background:#f3f8f3}.schedule-materials h3{margin:.35rem 0;font-size:1.15rem;color:#183e2c}.schedule-materials p{margin:0;color:#66766b;font-size:.9rem}.schedule-source-note{margin:1.2rem 0 0;padding:.95rem 1.05rem;border-left:3px solid #dbad46;border-radius:0 10px 10px 0;background:#fff9e8;color:#66542c;font-size:.92rem;line-height:1.6}.schedule-empty{padding:1rem;color:#65746a}@media(max-width:680px){.schedule-intro,.schedule-materials{align-items:flex-start;flex-direction:column}.schedule-year{font-size:.9rem}.schedule-card>summary{padding:1rem;font-size:1rem}.schedule-card-content{padding:0 .8rem .9rem}.schedule-day-caption{flex-direction:column;gap:.35rem}.schedule-table th,.schedule-table td{padding:.7rem .65rem}.schedule-table tbody th{width:82px}.schedule-subjects li{font-size:.84rem}}
+.site-footer .copyright .site-credit-supervision{display:block;width:max-content;max-width:100%;margin:.45rem auto 0;padding-top:.45rem;border-top:1px solid rgba(216,238,142,.38);color:#b7c7bc;font-size:10px;line-height:1.6}
+@media(max-width:500px){.site-footer .copyright .site-credit-supervision{font-size:9px}}
+.grade-catalog{margin:clamp(3rem,7vw,6rem) auto;max-width:1240px;padding:clamp(1.25rem,4vw,3rem);border:1px solid rgba(23,72,55,.14);border-radius:28px;background:linear-gradient(145deg,#f7fbf7,#fff);box-shadow:0 18px 50px rgba(20,52,40,.07)}.grade-catalog-heading{margin:.8rem 0 1.5rem}.grade-catalog-heading h2{margin:.35rem 0 .65rem;font-size:clamp(1.8rem,3vw,2.7rem);color:#173d30}.grade-catalog-heading p{max-width:760px;color:#586a61;line-height:1.65}.grade-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}.grade-option{display:grid;grid-template-columns:52px 1fr 34px;align-items:center;gap:1rem;min-height:102px;padding:1rem 1.15rem;border:1px solid #dce8df;border-radius:17px;background:#fff;color:#214633;text-decoration:none;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.grade-option:hover,.grade-option:focus-visible{transform:translateY(-3px);border-color:#7db38a;box-shadow:0 12px 26px rgba(27,75,48,.09)}.grade-option-number{display:grid;width:48px;height:48px;place-items:center;border-radius:15px;background:#edf6ef;color:#277048;font-size:1rem;font-weight:800}.grade-option-copy{display:grid;gap:.38rem}.grade-option-copy strong{font-size:1.05rem}.grade-option-copy small{color:#6c7a70;font-size:.86rem;line-height:1.45}.grade-option-arrow{display:grid;width:31px;height:31px;place-items:center;border-radius:50%;background:#f0f6f1;color:#29714a;font-size:1.1rem}.course-main{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,3.5rem) 4rem}.course-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.6fr);gap:2.5rem;align-items:center;margin:1.5rem 0 3.5rem;padding:clamp(1.5rem,5vw,4rem);border-radius:30px;background:linear-gradient(135deg,#eaf4ec,#f5f8f4 60%,#e9f0f7);border:1px solid #d8e5da}.course-hero-copy{max-width:800px}.course-number{margin:1.3rem 0 .2rem;color:#37744d;font-size:.85rem;font-weight:800;letter-spacing:.14em}.course-hero h1{margin:.3rem 0 1rem;color:#143d2a;font-size:clamp(2.5rem,5.5vw,4.5rem);line-height:1.02}.course-hero-copy>p:not(.course-number){max-width:720px;color:#52665a;font-size:1.08rem;line-height:1.75}.course-hero .button{margin-top:1rem}.course-year-card{display:grid;gap:1rem;padding:1.5rem;border:1px solid #d0e1d4;border-radius:22px;background:rgba(255,255,255,.8);color:#244d37}.course-year-card>span{font-size:.73rem;font-weight:800;letter-spacing:.12em;color:#45805a}.course-year-card strong{font-size:1.6rem;line-height:1.25}.course-year-card small{color:#6c796f}.course-description{padding:1.5rem 0 3rem;border-bottom:1px solid #e2e9e3}.course-description-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;margin-top:.8rem}.course-description-grid h2{margin:0;color:#1d4331;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.2}.course-description-grid p{margin:0 0 .85rem;color:#586a60;line-height:1.75}.course-schedule-section{margin:3.5rem 0;padding:clamp(1.2rem,3vw,2.3rem);border:1px solid #dce7de;border-radius:25px;background:#fff;box-shadow:0 16px 40px rgba(24,59,41,.06)}.course-schedule-heading{margin:.7rem 0 1.4rem}.course-schedule-heading h2{margin:.3rem 0;color:#183e2c;font-size:clamp(1.7rem,3vw,2.5rem)}.course-schedule-heading p{margin:0;color:#617167}.parallel-image-selector{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin:1.2rem 0;padding:1rem 1.15rem;border-radius:16px;background:#f2f7f3}.parallel-image-selector label{color:#244d37;font-weight:750}.parallel-image-selector select{min-width:190px;padding:.7rem 2.4rem .7rem .9rem;border:1px solid #cbdccf;border-radius:10px;background:#fff;color:#264c37;font:inherit;font-weight:650}.schedule-download{margin-left:auto;text-decoration:none}.schedule-image-wrap{overflow-x:auto;overscroll-behavior-inline:contain;border:1px solid #e1e9e2;border-radius:18px;background:#f7faf7}.schedule-image{display:block;width:100%;height:auto;min-width:850px}.course-materials-card{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin:2rem 0;padding:1.4rem 1.5rem;border:1px solid #dce8df;border-radius:20px;background:#f5f9f5}.course-materials-card h2{margin:.4rem 0;color:#183e2c;font-size:1.45rem}.course-materials-card p{margin:0;color:#66766c}.course-back-links{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1rem}.course-back-links a{color:#286845}.course-detail-page .program-breadcrumb{margin:1.3rem 0}.course-detail-page .site-credit-supervision{display:block}.course-detail-page .site-footer .copyright .site-credit-supervision{margin:.45rem auto 0;padding-top:.45rem;border-top:1px solid rgba(216,238,142,.38)}@media(max-width:760px){.grade-options{grid-template-columns:1fr}.course-hero{grid-template-columns:1fr;gap:1.4rem}.course-year-card{max-width:400px}.course-description-grid{grid-template-columns:1fr;gap:1rem}.parallel-image-selector{align-items:flex-start;flex-direction:column}.schedule-download{margin-left:0}.course-materials-card{align-items:flex-start;flex-direction:column}.course-back-links{flex-direction:column}}
+
+/* Inicio: apilamiento de portada, foto fija y contenido que entra encima. */
+.page-inicio .institution-stack{position:relative;isolation:isolate;overflow:visible}
+.page-inicio #institucion{position:sticky;top:calc(var(--site-notice-h,46px) + 100px);z-index:0;display:block;height:calc(100vh - var(--site-notice-h,46px) - 100px);min-height:400px;padding:0;overflow:hidden;background:#183d2b}
+.page-inicio #institucion .institution-photo-scene{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;overflow:hidden}
+.page-inicio #institucion .institution-photo-scene img{width:100%;height:100%;object-fit:cover;object-position:center 46%;transform:none;filter:brightness(1)}
+.page-inicio .values.section{position:relative;z-index:2;margin:0;padding:0;border-radius:0;background:transparent}
+.page-inicio .values .institution-intro{position:relative;z-index:2;min-height:55vh;margin:0 auto;padding:clamp(36px,7vh,82px) 24px;display:flex;align-items:center}
+.page-inicio .values .institution-intro>div{width:min(760px,100%);padding:clamp(28px,5vw,58px);border:1px solid #ffffffb8;border-radius:20px;background:rgba(248,250,247,.92);box-shadow:0 24px 60px #0a281b40;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.page-inicio .values .values-content{position:relative;z-index:2;padding:clamp(72px,9vw,112px) 0 80px;border-radius:22px 22px 0 0;background:#f8faf7}
+@media(max-width:760px){.page-inicio #institucion{top:calc(var(--site-notice-h,56px) + 86px);height:calc(100svh - var(--site-notice-h,56px) - 86px);min-height:360px}.page-inicio .values .institution-intro{min-height:55svh;padding:32px 22px}.page-inicio .values .institution-intro>div{padding:25px 22px}}
+/* Mantener el scroll raíz como contenedor para que position: sticky funcione en Inicio. */
+body.page-inicio{overflow-x:clip}
+/* Inicio: pin explícito de la foto entre la portada y el panel de comunidad. */
+.page-inicio #institucion{position:relative;top:auto;overflow:visible}
+.page-inicio #institucion .institution-photo-scene.is-photo-pinned{position:fixed!important;top:0;left:0;right:0;z-index:1;width:100vw;height:100vh;margin:0;pointer-events:none}
+.page-inicio .values .institution-intro,.page-inicio .values .values-content{z-index:2}
+/* Inicio: revelar la fachada fija detrás de las capas que suben, sin zoom. */
+.page-inicio .institution-stack{z-index:0}
+.page-inicio #inicio,.page-inicio .stats{position:relative;z-index:2}
+.page-inicio #institucion .institution-photo-scene.is-photo-pinned{transform:none!important;animation:none!important}
+.page-inicio #institucion .institution-photo-scene.is-photo-pinned img{transform:none!important;animation:none!important;transition:none!important}
+
+/* Tres revelados con foto fija en Inicio: fachada, vida escolar y cierre. */
+.page-inicio #vida.pin-backdrop-section,.page-inicio #contacto.pin-backdrop-section{position:relative;isolation:isolate;background:transparent!important}
+.page-inicio #vida.pin-backdrop-section::before,.page-inicio #contacto.pin-backdrop-section::before{position:fixed;inset:0;z-index:-1;display:block!important;content:"";background-image:linear-gradient(135deg,rgba(245,249,246,.56),rgba(245,249,246,.68)),var(--pin-photo-url);background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transition:opacity .55s ease;pointer-events:none}
+.page-inicio #vida.pin-backdrop-active::before,.page-inicio #contacto.pin-backdrop-active::before{opacity:1}
+.page-inicio #vida.pin-backdrop-section .life-grid,.page-inicio #contacto.pin-backdrop-section .contact-grid{position:relative;z-index:1;padding:clamp(24px,4vw,52px);border:1px solid #ffffffa8;border-radius:22px;background:rgba(248,250,247,.86);box-shadow:0 18px 45px #0c2b1d26;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.page-inicio .values .institution-intro{grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);gap:clamp(24px,4vw,54px)}
+.page-inicio .institution-intro-photo{display:block;width:100%;height:clamp(260px,32vw,420px);object-fit:cover;object-position:center;border:4px solid #fff;border-radius:18px;box-shadow:0 18px 42px #0b30272b}
+@media(max-width:760px){.page-inicio .values .institution-intro{grid-template-columns:1fr}.page-inicio .institution-intro-photo{height:clamp(230px,58vw,360px)}.page-inicio #vida.pin-backdrop-section::before,.page-inicio #contacto.pin-backdrop-section::before{background-attachment:scroll}.page-inicio #vida.pin-backdrop-section .life-grid,.page-inicio #contacto.pin-backdrop-section .contact-grid{padding:22px;border-radius:16px}}
+
+/* El segundo y tercer fondo quedan fijos mientras sus secciones pasan por encima. */
+.page-inicio .school-impact.pin-backdrop-section,.page-inicio #noticias.pin-backdrop-section{position:relative;isolation:isolate;background:transparent!important;overflow:visible}
+.page-inicio .school-impact.pin-backdrop-section::after,.page-inicio #noticias.pin-backdrop-section::after{position:fixed;inset:0;z-index:-1;display:block;content:"";background-image:linear-gradient(135deg,rgba(255,255,255,.32),rgba(255,255,255,.42)),var(--pin-photo-url);background-position:center;background-size:cover;background-repeat:no-repeat;filter:brightness(1.18) saturate(1.08);opacity:0;transition:opacity .45s ease;pointer-events:none}
+.page-inicio .school-impact.pin-backdrop-active::after,.page-inicio #noticias.pin-backdrop-active::after{opacity:1}
+.page-inicio .school-impact.pin-backdrop-section{color:#173d30}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-heading>span{color:#a72c35;text-shadow:none}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-heading h2{color:#173d30;text-shadow:0 1px 2px #fff9}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-grid article{border-color:#ffffffa8;background:#ffffffd9;backdrop-filter:blur(8px)}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-grid strong{color:#a72c35}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-grid article>span{color:#173d30}
+.page-inicio .school-impact.pin-backdrop-section .school-impact-grid article>small,.page-inicio .school-impact.pin-backdrop-section .school-impact-credit{color:#314b3d}
+.page-inicio #noticias.pin-backdrop-section{color:#17231f}
+.page-inicio #noticias.pin-backdrop-section .center-head h2{color:#173d30}
+.page-inicio #noticias.pin-backdrop-section .news-card{background:#fff;box-shadow:0 12px 30px #102b1d29}
+@media(max-width:760px){.page-inicio .school-impact.pin-backdrop-section::after,.page-inicio #noticias.pin-backdrop-section::after{background-attachment:scroll;filter:brightness(1.12) saturate(1.05)}}
+/* Inicio usa solo tres fondos fijos; la galería de Vida Estudiantil queda normal. */
+.page-inicio #vida.scroll-photo-section::before{display:none!important}
+
+/* Evitar que la animación de entrada transforme el contenedor del fondo fijo. */
+.page-inicio .school-impact.pin-backdrop-section.reveal,.page-inicio #noticias.pin-backdrop-section.reveal{opacity:1!important;transform:none!important;transition:none!important}
+
+/* En el relevo central, Oferta permanece delante y se desplaza; la foto queda detrás. */
+.page-inicio #oferta{position:relative;z-index:3}
+.page-inicio .school-impact.pin-backdrop-section{position:relative;z-index:1}
+.page-inicio #vida{position:relative;z-index:2}
+
+/* En el relevo central aparece primero solo la foto; las cifras entran después. */
+.page-inicio .photo-only-stage{position:relative;z-index:1;height:100vh;min-height:540px;margin:0;padding:0;overflow:visible;background:#183d2b url("assets/feria-proyectos.jpg") center/cover no-repeat}
+.page-inicio .photo-only-stage.pin-backdrop-section::after{position:fixed;inset:0;z-index:-1;display:block;content:"";background-image:linear-gradient(135deg,rgba(255,255,255,.32),rgba(255,255,255,.42)),var(--pin-photo-url);background-position:center;background-size:cover;background-repeat:no-repeat;filter:brightness(1.18) saturate(1.08);opacity:0;transition:opacity .45s ease;pointer-events:none}
+.page-inicio .photo-only-stage.pin-backdrop-active::after{opacity:1}
+.page-inicio .school-impact{position:relative;z-index:2;color:#173d30;background:transparent!important;overflow:visible}
+.page-inicio .school-impact .school-impact-heading>span{color:#a72c35;text-shadow:none}
+.page-inicio .school-impact .school-impact-heading h2{color:#173d30;text-shadow:0 1px 2px #fff9}
+.page-inicio .school-impact .school-impact-grid article{border-color:#ffffffa8;background:#ffffffd9;backdrop-filter:blur(8px)}
+.page-inicio .school-impact .school-impact-grid strong{color:#a72c35}
+.page-inicio .school-impact .school-impact-grid article>span{color:#173d30}
+.page-inicio .school-impact .school-impact-grid article>small,.page-inicio .school-impact .school-impact-credit{color:#314b3d}
+.page-inicio .school-impact .school-impact-credit a{color:#a72c35}
+@media(max-width:760px){.page-inicio .photo-only-stage{height:100svh;min-height:460px}.page-inicio .photo-only-stage.pin-backdrop-section::after{background-attachment:scroll;filter:brightness(1.12) saturate(1.05)}}
+
+/* Ajustes solicitados: foto central nítida y cifras con su paleta original. */
+.page-inicio .photo-only-stage.pin-backdrop-section::after{background-image:var(--pin-photo-url);filter:brightness(1.12) saturate(1.08)}
+.page-inicio .school-impact{background:linear-gradient(135deg,#104c35 0%,#145d3d 55%,#0d392b 100%)!important;color:#fff;overflow:hidden}
+.page-inicio .school-impact .school-impact-heading>span{color:#e7f09e}
+.page-inicio .school-impact .school-impact-heading h2{display:inline-block;margin:10px 0 0;padding:10px 18px;border-radius:10px;background:rgba(11,48,39,.72);color:#fff;text-shadow:0 2px 7px rgba(0,0,0,.35)}
+.page-inicio .school-impact .school-impact-grid article{border-color:#ffffff35;border-top-color:#d6e98b;background:#ffffff12}
+.page-inicio .school-impact .school-impact-grid article:nth-child(even){border-top-color:#f0a0a2}
+.page-inicio .school-impact .school-impact-grid strong{color:#f1d96f}
+.page-inicio .school-impact .school-impact-grid article>span{color:#fff}
+.page-inicio .school-impact .school-impact-grid article>small,.page-inicio .school-impact .school-impact-credit{color:#e1eee5}
+.page-inicio .school-impact .school-impact-credit{color:#d5e5db}
+
+/* Cifras sobre la foto fija: conservar tarjetas y textos, quitar el bloque verde. */
+.page-inicio .school-impact{background:transparent!important;overflow:visible}
+
+/* Solo las tarjetas de cifras llevan verde; destacar el rótulo de comunidad. */
+.page-inicio .school-impact .school-impact-grid article{background:#145d3d!important;border-color:#ffffff55!important;box-shadow:0 10px 24px rgba(11,48,39,.22)}
+.page-inicio .school-impact .school-impact-grid article:hover{background:#104c35!important}
+.page-inicio .school-impact .school-impact-heading>span{display:inline-block;color:#ffdf52!important;font-size:17px;font-weight:900;letter-spacing:.16em;text-shadow:0 2px 5px rgba(11,48,39,.8)}
+
+/* Tercer fondo de Inicio: la feria del Cantón Pichincha reemplaza la galería anterior. */
+.page-inicio #vida.pin-backdrop-section{position:relative;z-index:2;isolation:isolate;background:transparent!important}
+.page-inicio #vida.pin-backdrop-section::after{position:fixed;inset:0;z-index:-1;display:block;content:"";background-image:var(--pin-photo-url);background-position:center;background-size:cover;background-repeat:no-repeat;filter:brightness(1.08) saturate(1.06);opacity:0;transition:opacity .45s ease;pointer-events:none}
+.page-inicio #vida.pin-backdrop-active::after{opacity:1}
+.page-inicio #vida .life-grid{grid-template-columns:minmax(0,1fr);max-width:1060px}
+.page-inicio #vida .life-grid>.reveal{padding:clamp(24px,4vw,44px);border:1px solid #ffffffb0;border-radius:22px;background:rgba(248,250,247,.9);box-shadow:0 18px 45px #0c2b1d30;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+@media(max-width:760px){.page-inicio #vida.pin-backdrop-section::after{background-attachment:scroll}.page-inicio #vida .life-grid>.reveal{padding:22px;border-radius:16px}}
+.page-inicio #vida.pin-backdrop-section::after{background-position:center 65%}
+
+/* Corregir la entrada del fondo medio y devolver Vida Estudiantil a su composición original. */
+.page-inicio #institucion .institution-photo-scene.is-photo-ended{visibility:hidden}
+.page-inicio .photo-only-stage{background:transparent!important}
+.page-inicio .photo-only-stage.pin-backdrop-section::after{background-image:var(--pin-photo-url);filter:brightness(1.12) saturate(1.08);opacity:1;transition:none}
+.page-inicio .photo-only-stage.pin-backdrop-active::after{opacity:1}
+.page-inicio #vida .life-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);max-width:1180px}
+.page-inicio #vida .life-grid>.reveal{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+@media(max-width:760px){.page-inicio #vida .life-grid{grid-template-columns:1fr}}
+/* El último efecto queda en Contacto; la foto de Cantón ya no aparece en Vida Estudiantil. */
+.page-inicio #contacto.pin-backdrop-section{position:relative;z-index:2;isolation:isolate;background:transparent!important}
+.page-inicio #contacto.pin-backdrop-section::after{position:fixed;inset:0;z-index:-1;display:block;content:"";background-image:var(--pin-photo-url);background-position:center 62%;background-size:cover;background-repeat:no-repeat;filter:brightness(1.08) saturate(1.06);opacity:0;transition:opacity .45s ease;pointer-events:none}
+.page-inicio #contacto.pin-backdrop-active::after{opacity:1}
+.page-inicio #contacto .contact-grid{position:relative;z-index:1;padding:clamp(24px,4vw,48px);border:1px solid #ffffffb0;border-radius:22px;background:rgba(248,250,247,.9);box-shadow:0 18px 45px #0c2b1d30;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+
+
+/* Mantener visible el bloque de comunidad bajo la foto fija de la fachada. */
+.page-inicio .values .institution-intro{position:relative;z-index:3;opacity:1!important;visibility:visible!important;transform:none!important}
+.page-inicio .values .institution-intro>div{opacity:1!important;visibility:visible!important}
+
+
+/* Inicio vuelve a secciones normales, sin parallax ni fondos fijos. */
+.page-inicio #institucion{position:relative!important;top:auto!important;z-index:auto!important;display:block!important;height:auto!important;min-height:0!important;margin:0!important;padding:clamp(56px,8vw,104px) 0!important;overflow:visible!important;background:#f8faf7!important}
+.page-inicio .values.section{position:relative!important;z-index:auto!important;margin:0!important;padding:0!important;background:#f8faf7!important}
+.page-inicio .values .values-content{position:relative!important;z-index:auto!important;padding:clamp(56px,8vw,104px) 0!important;border-radius:0!important;background:#f8faf7!important}
+.page-inicio .reveal{opacity:1!important;transform:none!important;transition:none!important}
+
+/* Inicio: restauración visual de las ocho secciones sin fondos fijos ni parallax. */
+.page-inicio #institucion{position:relative!important;top:auto!important;z-index:auto!important;display:block!important;height:auto!important;min-height:0!important;margin:0!important;padding:clamp(46px,6vw,78px) 0!important;overflow:hidden!important;background:#fff!important}
+.page-inicio #institucion::before{position:absolute;inset:0;content:"";background:linear-gradient(rgba(247,250,247,.76),rgba(247,250,247,.76)),url("assets/fachada-eloy-alfaro.jpg") center/cover no-repeat;opacity:1;pointer-events:none}
+.page-inicio .institution-intro{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,1.08fr);align-items:center;gap:clamp(38px,7vw,90px);max-width:1360px;margin:0 auto;padding:24px 7%}
+.page-inicio .institution-intro-photo{display:block;width:100%;height:clamp(340px,36vw,480px);object-fit:cover;object-position:center;border:3px solid #fff;border-radius:16px;box-shadow:0 18px 42px rgba(13,45,31,.24)}
+.page-inicio .institution-photo-frame{position:relative;width:100%;max-width:660px}
+.page-inicio .institution-photo-badge{position:absolute;left:-28px;bottom:28px;display:grid;gap:8px;width:min(265px,70%);padding:24px;background:#19a764;color:#fff;box-shadow:0 14px 32px rgba(13,45,31,.2)}
+.page-inicio .institution-photo-badge strong{font-family:var(--display);font-size:22px;line-height:1.2;color:#e8eea4}
+.page-inicio .institution-photo-badge span{font-size:13px;line-height:1.6}
+.page-inicio .values.section{position:relative!important;z-index:auto!important;margin:0!important;padding:0!important;background:linear-gradient(rgba(189,25,43,.88),rgba(189,25,43,.88)),url("assets/aprendizaje-rincon-ciencias.png") center/cover no-repeat!important}
+.page-inicio .values .values-content{position:relative!important;z-index:auto!important;padding:clamp(55px,7vw,88px) 0!important;border-radius:0!important;background:transparent!important}
+.page-inicio .values .center-head h2,.page-inicio .values .section-kicker{color:#fff!important}
+.page-inicio #vida{position:relative;background:linear-gradient(rgba(190,24,43,.86),rgba(190,24,43,.86)),url("assets/actividad-patio.jpg") center/cover no-repeat!important}
+.page-inicio #vida .section-kicker,.page-inicio #vida h2{color:#fff!important}
+.page-inicio .school-impact{position:relative;background:linear-gradient(135deg,#104c35 0%,#145d3d 55%,#0d392b 100%)!important;color:#fff;overflow:hidden!important}
+.page-inicio .school-impact .school-impact-heading>span{color:#e7f09e!important}
+.page-inicio .school-impact .school-impact-heading h2{background:transparent!important;color:#fff!important;text-shadow:none!important}
+.page-inicio .school-impact .school-impact-grid article{background:#ffffff12!important;border-color:#ffffff35!important}
+.page-inicio .school-impact .school-impact-grid strong{color:#f1d96f!important}
+.page-inicio #contacto{background:linear-gradient(rgba(244,249,244,.9),rgba(244,249,244,.9)),url("assets/aprendizaje-rincon-ciencias.png") center/cover no-repeat!important}
+@media(max-width:760px){.page-inicio .institution-intro{grid-template-columns:1fr;gap:32px}.page-inicio .institution-intro-photo{height:clamp(270px,62vw,390px)}.page-inicio .institution-photo-badge{left:-8px;bottom:18px}.page-inicio #institucion::before{background-position:center}}
+.page-inicio .hero .eyebrow{display:inline-flex;padding:12px 16px;background:#c9363e;color:#fff}.page-inicio .hero .eyebrow:before{display:none}.page-inicio .hero .btn-primary{background:#19a764;color:#fff}.page-inicio .hero .btn-primary:hover{background:#168d55}
+/* Inicio, sección 2: fachada como fondo completo y bloque compacto. */
+.page-inicio #institucion{position:relative!important;display:block!important;height:auto!important;min-height:0!important;margin:0!important;padding:20px 0!important;overflow:hidden!important;background:#e8eeeb!important}
+.page-inicio #institucion::before{position:absolute;z-index:0;inset:0;content:"";background-image:linear-gradient(rgba(237,241,239,.58),rgba(237,241,239,.58)),url("assets/fachada-eloy-alfaro.jpg");background-position:center 48%;background-size:cover;background-repeat:no-repeat;opacity:1;pointer-events:none}
+.page-inicio #institucion .institution-intro{position:relative;z-index:1;min-height:0;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(34px,6vw,78px);max-width:1360px;margin:0 auto;padding:20px 7%}
+.page-inicio #institucion .institution-photo-frame{max-width:660px}
+.page-inicio #institucion .institution-intro-photo{height:clamp(300px,30vw,440px)}
+@media(max-width:760px){.page-inicio #institucion{padding:18px 0!important}.page-inicio #institucion::before{background-position:center;background-image:linear-gradient(rgba(237,241,239,.68),rgba(237,241,239,.68)),url("assets/fachada-eloy-alfaro.jpg")}.page-inicio #institucion .institution-intro{grid-template-columns:1fr;gap:28px;padding:20px 7%}.page-inicio #institucion .institution-intro-photo{height:clamp(260px,62vw,360px)}}
+/* El crédito aparece en la segunda línea del pie sin salto entre autoría y orientación. */
+.site-footer .copyright{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important}
+.site-footer .copyright>span{display:block!important;width:100%!important;text-align:center!important}
+.site-footer .copyright .site-credit{max-width:none!important;white-space:normal!important;line-height:1.6!important}
+.site-footer .copyright .site-credit-supervision{display:inline!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;color:inherit!important;font-size:inherit!important;line-height:inherit!important}
+.site-footer .copyright .site-credit-supervision::before{content:" — ";white-space:pre}
+/* Inicio, sección final: fotografía completa, sin tarjeta ni velo blanco. */
+.page-inicio #contacto.contact-fullbleed{position:relative;display:flex;align-items:center;min-height:clamp(520px,72vh,760px);margin:0;padding:0!important;overflow:hidden;isolation:isolate;background:#071f19!important}
+.page-inicio #contacto.contact-fullbleed::before{position:absolute;inset:0;z-index:-1;content:"";background:linear-gradient(90deg,rgba(7,31,25,.78) 0%,rgba(7,31,25,.52) 48%,rgba(7,31,25,.12) 100%);pointer-events:none}
+.page-inicio #contacto .contact-fullbleed-image{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;opacity:1!important;filter:none!important;transform:none!important;animation:none!important;transition:none!important}
+.page-inicio #contacto .contact-fullbleed-content{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:clamp(72px,10vw,128px) 7%!important}
+.page-inicio #contacto .contact-fullbleed-copy{max-width:700px;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+.page-inicio #contacto .contact-fullbleed-copy .section-kicker{color:#e7f09e!important}
+.page-inicio #contacto .contact-fullbleed-copy h2{color:#fff!important}
+.page-inicio #contacto .contact-fullbleed-copy .lead{color:#f4f6f4!important}
+.page-inicio #contacto .contact-fullbleed-copy .btn-primary{background:#19a764;color:#fff}
+@media(max-width:760px){.page-inicio #contacto.contact-fullbleed{min-height:clamp(480px,70svh,680px)}.page-inicio #contacto.contact-fullbleed::before{background:linear-gradient(90deg,rgba(7,31,25,.76),rgba(7,31,25,.4))}.page-inicio #contacto .contact-fullbleed-image{object-position:55% center}.page-inicio #contacto .contact-fullbleed-content{padding:64px 7%!important}}

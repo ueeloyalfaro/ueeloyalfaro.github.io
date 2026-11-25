@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1015" viewBox="0 0 1600 1015" role="img" aria-labelledby="title desc"><title id="title">Horario de Segundo de Bachillerato en Ciencias · Paralelo B</title><desc id="desc">Horario semanal de lunes a viernes del año lectivo 2026–2027, con materias, docentes, receso y horas de clase.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f7f2"/><stop offset="1" stop-color="#eaf0f6"/></linearGradient><linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15563a"/><stop offset="1" stop-color="#28764e"/></linearGradient><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#163b2b" flood-opacity=".08"/></filter></defs>
+<rect width="1600" height="1015" rx="32" fill="url(#bg)"/><rect x="36" y="28" width="1528" height="166" rx="24" fill="#fff" filter="url(#shadow)"/><rect x="36" y="28" width="12" height="166" rx="6" fill="url(#bar)"/>
+<text x="78" y="70" class="eyebrow">UNIDAD EDUCATIVA FISCAL ELOY ALFARO</text><text x="78" y="123" class="title">HORARIO DE CLASES</text>
+<text x="80" y="162" class="subtitle">SEGUNDO DE BACHILLERATO EN CIENCIAS · AÑO LECTIVO 2026–2027</text><rect x="1270" y="62" width="250" height="90" rx="20" fill="#edf5ef" stroke="#d4e2d7" stroke-width="2"/><text x="1395" y="98" text-anchor="middle" class="parallel-label">PARALELO B</text><text x="1395" y="128" text-anchor="middle" class="parallel-sub">JORNADA MATUTINA</text>
+<rect x="36" y="218" width="1528" height="733" rx="20" fill="#fff" filter="url(#shadow)"/>
+<rect x="36" y="218" width="148" height="88" rx="20" fill="url(#bar)"/><rect x="36" y="286" width="148" height="20" fill="url(#bar)"/><text x="110.0" y="272" text-anchor="middle" class="hdr-day">DÍAS</text>
+<rect x="184.00" y="218" width="153.73" height="88" fill="#edf5ef" stroke="#d8e3da" stroke-width="1.2"/><text x="260.67" y="253" text-anchor="middle" class="hdr-period">PRIMERA</text><text x="260.67" y="281" text-anchor="middle" class="hdr-time">07:00–07:45</text>
+<rect x="337.33" y="218" width="153.73" height="88" fill="#f4f7f9" stroke="#d8e3da" stroke-width="1.2"/><text x="414.00" y="253" text-anchor="middle" class="hdr-period">SEGUNDA</text><text x="414.00" y="281" text-anchor="middle" class="hdr-time">07:45–08:30</text>
+<rect x="490.67" y="218" width="153.73" height="88" fill="#edf5ef" stroke="#d8e3da" stroke-width="1.2"/><text x="567.33" y="253" text-anchor="middle" class="hdr-period">TERCERA</text><text x="567.33" y="281" text-anchor="middle" class="hdr-time">08:30–09:15</text>
+<rect x="644.00" y="218" width="153.73" height="88" fill="#f4f7f9" stroke="#d8e3da" stroke-width="1.2"/><text x="720.67" y="253" text-anchor="middle" class="hdr-period">CUARTA</text><text x="720.67" y="281" text-anchor="middle" class="hdr-time">09:15–10:00</text>
+<rect x="797.33" y="218" width="153.73" height="88" fill="#f9efd8" stroke="#d8e3da" stroke-width="1.2"/><text x="874.00" y="253" text-anchor="middle" class="hdr-period">RECESO</text><text x="874.00" y="281" text-anchor="middle" class="hdr-time">10:00–10:20</text>
+<rect x="950.67" y="218" width="153.73" height="88" fill="#f4f7f9" stroke="#d8e3da" stroke-width="1.2"/><text x="1027.33" y="253" text-anchor="middle" class="hdr-period">QUINTA</text><text x="1027.33" y="281" text-anchor="middle" class="hdr-time">10:20–11:05</text>
+<rect x="1104.00" y="218" width="153.73" height="88" fill="#edf5ef" stroke="#d8e3da" stroke-width="1.2"/><text x="1180.67" y="253" text-anchor="middle" class="hdr-period">SEXTA</text><text x="1180.67" y="281" text-anchor="middle" class="hdr-time">11:05–11:50</text>
+<rect x="1257.33" y="218" width="153.73" height="88" fill="#f4f7f9" stroke="#d8e3da" stroke-width="1.2"/><text x="1334.00" y="253" text-anchor="middle" class="hdr-period">SÉPTIMA</text><text x="1334.00" y="281" text-anchor="middle" class="hdr-time">11:50–12:30</text>
+<rect x="1410.67" y="218" width="153.73" height="88" fill="#edf5ef" stroke="#d8e3da" stroke-width="1.2"/><text x="1487.33" y="253" text-anchor="middle" class="hdr-period">OCTAVA</text><text x="1487.33" y="281" text-anchor="middle" class="hdr-time">12:30–13:10</text>
+<rect x="36" y="306" width="148" height="129" fill="#f5faf6" stroke="#d9e5db" stroke-width="1.2"/><rect x="48" y="340" width="124" height="60" rx="15" fill="#e8f2ea"/><text x="110.0" y="377" text-anchor="middle" class="day-text">LUNES</text>
+<rect x="185.00" y="307" width="304.67" height="127" rx="13" fill="#f1edf7" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="337.3" y="364.0" text-anchor="middle"><tspan x="337.3" dy="0">Lengua y Literatura</tspan></text>
+<text class="teacher" x="337.3" y="389.0" text-anchor="middle"><tspan x="337.3" dy="0">MG. ELVIRA C.</tspan></text>
+<rect x="491.67" y="307" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="644.0" y="364.0" text-anchor="middle"><tspan x="644.0" dy="0">EDUC. CIUDAD</tspan></text>
+<text class="teacher" x="644.0" y="389.0" text-anchor="middle"><tspan x="644.0" dy="0">MG. ROBERTO M.</tspan></text>
+<rect x="798.33" y="307" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
+<text x="874.00" y="374" text-anchor="middle" class="recess">DESCANSO</text>
+<rect x="951.67" y="307" width="151.33" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1027.3" y="364.0" text-anchor="middle"><tspan x="1027.3" dy="0">Química</tspan></text>
+<text class="teacher" x="1027.3" y="389.0" text-anchor="middle"><tspan x="1027.3" dy="0">M.Sc. JULIO F.</tspan></text>
+<rect x="1105.00" y="307" width="304.67" height="127" rx="13" fill="#faf2e5" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1257.3" y="364.0" text-anchor="middle"><tspan x="1257.3" dy="0">ECA</tspan></text>
+<text class="teacher" x="1257.3" y="389.0" text-anchor="middle"><tspan x="1257.3" dy="0">LIC. KARINA L.</tspan></text>
+<rect x="1411.67" y="307" width="151.33" height="127" rx="13" fill="#fbfdfb" stroke="#e0e8e1" stroke-width="1.1"/>
+<rect x="36" y="435" width="148" height="129" fill="#fff" stroke="#d9e5db" stroke-width="1.2"/><rect x="48" y="469" width="124" height="60" rx="15" fill="#e8f2ea"/><text x="110.0" y="506" text-anchor="middle" class="day-text">MARTES</text>
+<rect x="185.00" y="436" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="337.3" y="493.0" text-anchor="middle"><tspan x="337.3" dy="0">BIOL</tspan></text>
+<text class="teacher" x="337.3" y="518.0" text-anchor="middle"><tspan x="337.3" dy="0">LIC.ANDREA G.</tspan></text>
+<rect x="491.67" y="436" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="644.0" y="493.0" text-anchor="middle"><tspan x="644.0" dy="0">Educación Física</tspan></text>
+<text class="teacher" x="644.0" y="518.0" text-anchor="middle"><tspan x="644.0" dy="0">LIC. JESSICA M.</tspan></text>
+<rect x="798.33" y="436" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
+<text x="874.00" y="503" text-anchor="middle" class="recess">DESCANSO</text>
+<rect x="951.67" y="436" width="151.33" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1027.3" y="493.0" text-anchor="middle"><tspan x="1027.3" dy="0">Física</tspan></text>
+<text class="teacher" x="1027.3" y="518.0" text-anchor="middle"><tspan x="1027.3" dy="0">M.Sc. JULIO F.</tspan></text>
+<rect x="1105.00" y="436" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1257.3" y="493.0" text-anchor="middle"><tspan x="1257.3" dy="0">Matemáticas</tspan></text>
+<text class="teacher" x="1257.3" y="518.0" text-anchor="middle"><tspan x="1257.3" dy="0">MG. MARCO M.</tspan></text>
+<rect x="1411.67" y="436" width="151.33" height="127" rx="13" fill="#fff" stroke="#e0e8e1" stroke-width="1.1"/>
+<rect x="36" y="564" width="148" height="129" fill="#f5faf6" stroke="#d9e5db" stroke-width="1.2"/><rect x="48" y="598" width="124" height="60" rx="15" fill="#e8f2ea"/><text x="110.0" y="635" text-anchor="middle" class="day-text">MIÉRCOLES</text>
+<rect x="185.00" y="565" width="304.67" height="127" rx="13" fill="#f1edf7" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="337.3" y="622.0" text-anchor="middle"><tspan x="337.3" dy="0">Lengua y Literatura</tspan></text>
+<text class="teacher" x="337.3" y="647.0" text-anchor="middle"><tspan x="337.3" dy="0">MG. ELVIRA C.</tspan></text>
+<rect x="491.67" y="565" width="151.33" height="127" rx="13" fill="#f1edf7" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="567.3" y="622.0" text-anchor="middle"><tspan x="567.3" dy="0">Inglés S</tspan></text>
+<text class="teacher" x="567.3" y="647.0" text-anchor="middle"><tspan x="567.3" dy="0">MG. DIEGO C.</tspan></text>
+<rect x="645.00" y="565" width="151.33" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="720.7" y="622.0" text-anchor="middle"><tspan x="720.7" dy="0">BIOL</tspan></text>
+<text class="teacher" x="720.7" y="647.0" text-anchor="middle"><tspan x="720.7" dy="0">LIC.ANDREA G.</tspan></text>
+<rect x="798.33" y="565" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
+<text x="874.00" y="632" text-anchor="middle" class="recess">DESCANSO</text>
+<rect x="951.67" y="565" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1104.0" y="622.0" text-anchor="middle"><tspan x="1104.0" dy="0">Química</tspan></text>
+<text class="teacher" x="1104.0" y="647.0" text-anchor="middle"><tspan x="1104.0" dy="0">M.Sc. JULIO F.</tspan></text>
+<rect x="1258.33" y="565" width="151.33" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1334.0" y="622.0" text-anchor="middle"><tspan x="1334.0" dy="0">LENG. Y LIT.</tspan></text>
+<text class="teacher" x="1334.0" y="647.0" text-anchor="middle"><tspan x="1334.0" dy="0">MG. ELVIRA C.</tspan></text>
+<rect x="1411.67" y="565" width="151.33" height="127" rx="13" fill="#fbfdfb" stroke="#e0e8e1" stroke-width="1.1"/>
+<rect x="36" y="693" width="148" height="129" fill="#fff" stroke="#d9e5db" stroke-width="1.2"/><rect x="48" y="727" width="124" height="60" rx="15" fill="#e8f2ea"/><text x="110.0" y="764" text-anchor="middle" class="day-text">JUEVES</text>
+<rect x="185.00" y="694" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="337.3" y="751.0" text-anchor="middle"><tspan x="337.3" dy="0">Matemáticas</tspan></text>
+<text class="teacher" x="337.3" y="776.0" text-anchor="middle"><tspan x="337.3" dy="0">MG. MARCO M.</tspan></text>
+<rect x="491.67" y="694" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="644.0" y="751.0" text-anchor="middle"><tspan x="644.0" dy="0">Historia</tspan></text>
+<text class="teacher" x="644.0" y="776.0" text-anchor="middle"><tspan x="644.0" dy="0">MG. YAJAIRA C.</tspan></text>
+<rect x="798.33" y="694" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
+<text x="874.00" y="761" text-anchor="middle" class="recess">DESCANSO</text>
+<rect x="951.67" y="694" width="304.67" height="127" rx="13" fill="#f1edf7" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1104.0" y="751.0" text-anchor="middle"><tspan x="1104.0" dy="0">Inglés</tspan></text>
+<text class="teacher" x="1104.0" y="776.0" text-anchor="middle"><tspan x="1104.0" dy="0">MG. DIEGO C.</tspan></text>
+<rect x="1258.33" y="694" width="151.33" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1334.0" y="741.5" text-anchor="middle"><tspan x="1334.0" dy="0">CIV. Y ACOM .</tspan><tspan x="1334.0" dy="19">AULA</tspan></text>
+<text class="teacher" x="1334.0" y="785.5" text-anchor="middle"><tspan x="1334.0" dy="0">LIC. KARINA L.</tspan></text>
+<rect x="1411.67" y="694" width="151.33" height="127" rx="13" fill="#fff" stroke="#e0e8e1" stroke-width="1.1"/>
+<rect x="36" y="822" width="148" height="129" fill="#f5faf6" stroke="#d9e5db" stroke-width="1.2"/><rect x="48" y="856" width="124" height="60" rx="15" fill="#e8f2ea"/><text x="110.0" y="893" text-anchor="middle" class="day-text">VIERNES</text>
+<rect x="185.00" y="823" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="337.3" y="880.0" text-anchor="middle"><tspan x="337.3" dy="0">Física</tspan></text>
+<text class="teacher" x="337.3" y="905.0" text-anchor="middle"><tspan x="337.3" dy="0">M.Sc. JULIO F.</tspan></text>
+<rect x="491.67" y="823" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="644.0" y="880.0" text-anchor="middle"><tspan x="644.0" dy="0">Filosofía</tspan></text>
+<text class="teacher" x="644.0" y="905.0" text-anchor="middle"><tspan x="644.0" dy="0">M.SC. RAQUEL ZAMBRANO</tspan></text>
+<rect x="798.33" y="823" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
+<text x="874.00" y="890" text-anchor="middle" class="recess">DESCANSO</text>
+<rect x="951.67" y="823" width="151.33" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1027.3" y="880.0" text-anchor="middle"><tspan x="1027.3" dy="0">Matemáticas</tspan></text>
+<text class="teacher" x="1027.3" y="905.0" text-anchor="middle"><tspan x="1027.3" dy="0">MG. MARCO M.</tspan></text>
+<rect x="1105.00" y="823" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
+<text class="subject" x="1257.3" y="880.0" text-anchor="middle"><tspan x="1257.3" dy="0">EMPR. Y GEST-</tspan></text>
+<text class="teacher" x="1257.3" y="905.0" text-anchor="middle"><tspan x="1257.3" dy="0">M.Sc. ANDREA U.</tspan></text>
+<rect x="1411.67" y="823" width="151.33" height="127" rx="13" fill="#fbfdfb" stroke="#e0e8e1" stroke-width="1.1"/>
+<style>.eyebrow{font:700 16px Arial,sans-serif;letter-spacing:2px;fill:#43805a}.title{font:800 38px Arial,sans-serif;fill:#173e2c}.subtitle{font:600 16px Arial,sans-serif;letter-spacing:.5px;fill:#64766a}.parallel-label{font:800 20px Arial,sans-serif;fill:#21563a}.parallel-sub{font:700 12px Arial,sans-serif;letter-spacing:1.2px;fill:#6a806e}.hdr-day{font:800 16px Arial,sans-serif;letter-spacing:1px;fill:#fff}.hdr-period{font:800 15px Arial,sans-serif;letter-spacing:.4px;fill:#234e36}.hdr-time{font:600 13px Arial,sans-serif;fill:#687a6e}.day-text{font:800 17px Arial,sans-serif;letter-spacing:.4px;fill:#235b3d}.subject{font:800 15px Arial,sans-serif;fill:#254d37}.teacher{font:600 12px Arial,sans-serif;fill:#5c6d62}.recess{font:700 12px Arial,sans-serif;letter-spacing:.8px;fill:#9b782f}</style></svg>
