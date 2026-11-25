@@ -912,3 +912,11 @@ main li{font-size:max(16px,1.04em)!important;line-height:1.65}
 @media(max-width:760px){.memory-carousel .memory-card{flex-basis:calc((100% - 15px)/2)}}
 @media(max-width:520px){.memory-carousel .history-gallery{gap:10px}.memory-carousel .memory-card{flex-basis:calc((100% - 10px)/2)}.memory-carousel-controls{gap:8px}.memory-carousel-status{display:none}}
 @media(prefers-reduced-motion:reduce){.memory-carousel .history-gallery{transition:none}}
+
+/* Portadas verticales de las noticias destacadas de noviembre de 2026. */
+.page-novedades .news-collage-slide.is-single{grid-template-columns:1fr}
+.page-novedades .news-collage-slide.is-single>.news-collage-main{object-fit:contain;object-position:center;background:#f7f8f7}
+.page-novedades .news-poster .latest-news-lead>img.news-poster-image{height:auto;min-height:390px;max-height:760px;object-fit:contain;object-position:center;background:#f7f8f7}
+.page-novedades .news-poster .latest-news-lead a{color:#147843;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.page-novedades .news-poster .latest-news-lead>img.news-poster-image{min-height:0;max-height:650px}}
+@media(max-width:480px){.page-novedades .news-poster .latest-news-lead>img.news-poster-image{max-height:560px}}
