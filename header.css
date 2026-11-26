@@ -506,8 +506,6 @@ body.program-detail-page .program-closing-photo .button{background:#c4363e;color
 .site-header .main-nav>a.home-clicked,
 .site-header .main-nav .nav-submenu a.active{background:transparent!important;color:#a72c35!important;box-shadow:none!important}
 .site-header .main-nav>a.active::after{width:24px!important;background:#a72c35!important}
-.site-header .main-nav>a.active:not(:hover):not(:focus-visible){text-decoration:underline!important;text-decoration-color:#a72c35!important;text-decoration-thickness:2px!important;text-underline-offset:7px!important}
-.site-header .main-nav>a.active:hover{text-decoration-color:#fff!important}
 .site-header .main-nav .nav-submenu a.active{text-decoration:underline!important;text-decoration-color:#a72c35!important;text-decoration-thickness:2px!important;text-underline-offset:4px!important;transform:none!important}
 .site-header .main-nav .nav-submenu a:hover,.site-header .main-nav .nav-submenu a:focus-visible{background:#a72c35!important;color:#fff!important;box-shadow:inset 3px 0 #7d2028!important}
 @media(hover:hover){.site-header .main-nav .nav-dropdown:hover>.nav-submenu,.site-header .main-nav .nav-dropdown:focus-within>.nav-submenu{display:grid!important}}
@@ -540,6 +538,11 @@ body.program-detail-page .program-closing-photo .button{background:#c4363e;color
 
 /* Inicial: alterna las fotografías y el texto entre secciones. */
 body.page-inicial .program-detail-highlight{grid-template-areas:"image copy"}
+
+/* En Noticias se usa un único subrayado visible, también con enlaces a artículos. */
+body.page-novedades .site-header .main-nav>a[href="novedades.html"]{text-decoration:underline!important;text-decoration-color:#a72c35!important;text-decoration-thickness:2px!important;text-underline-offset:7px!important}
+body.page-novedades .site-header .main-nav>a[href="novedades.html"]::after{display:none!important}
+body.page-novedades .site-header .main-nav>a[href="novedades.html"]:hover{ text-decoration-color:#fff!important }
 body.page-inicial .program-detail-highlight>img{grid-area:image}
 body.page-inicial .program-detail-highlight>div{grid-area:copy}
 body.page-inicial .program-detail-highlight--reverse{grid-template-areas:"copy image"}
