@@ -1116,6 +1116,9 @@ body.page-inicio{overflow-x:clip}
 .page-inicio #institucion .institution-photo-frame{max-width:660px}
 .page-inicio #institucion .institution-intro-photo{height:clamp(300px,30vw,440px)}
 @media(max-width:760px){.page-inicio #institucion{padding:18px 0!important}.page-inicio #institucion::before{background-position:center;background-image:linear-gradient(rgba(237,241,239,.68),rgba(237,241,239,.68)),url("assets/fachada-eloy-alfaro.jpg")}.page-inicio #institucion .institution-intro{grid-template-columns:1fr;gap:28px;padding:20px 7%}.page-inicio #institucion .institution-intro-photo{height:clamp(260px,62vw,360px)}}
+/* Paso 1 del efecto cortina: la fachada permanece fija mientras la portada sube. */
+@media(min-width:761px){.page-inicio #institucion::before{background-attachment:fixed!important}}
+@media(max-width:760px){.page-inicio #institucion::before{background-attachment:scroll!important}}
 /* El crédito aparece en la segunda línea del pie sin salto entre autoría y orientación. */
 .site-footer .copyright{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important}
 .site-footer .copyright>span{display:block!important;width:100%!important;text-align:center!important}
@@ -1133,3 +1136,71 @@ body.page-inicio{overflow-x:clip}
 .page-inicio #contacto .contact-fullbleed-copy .lead{color:#f4f6f4!important}
 .page-inicio #contacto .contact-fullbleed-copy .btn-primary{background:#19a764;color:#fff}
 @media(max-width:760px){.page-inicio #contacto.contact-fullbleed{min-height:clamp(480px,70svh,680px)}.page-inicio #contacto.contact-fullbleed::before{background:linear-gradient(90deg,rgba(7,31,25,.76),rgba(7,31,25,.4))}.page-inicio #contacto .contact-fullbleed-image{object-position:55% center}.page-inicio #contacto .contact-fullbleed-content{padding:64px 7%!important}}
+/* La fachada queda en una capa fija detrás de la portada y de la sección 2. */
+.page-inicio .facade-fixed-backdrop{position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(237,241,239,.22),rgba(237,241,239,.22)),url("assets/fachada-eloy-alfaro.jpg") center 48%/cover no-repeat;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+.page-inicio .facade-fixed-backdrop.is-visible{opacity:1;visibility:visible}
+.page-inicio main{position:relative;z-index:1}
+.page-inicio #institucion{height:200vh!important;min-height:200vh!important;overflow:visible!important}
+.page-inicio #institucion .institution-intro{position:sticky!important;top:calc(var(--site-notice-h,46px) + 72px)!important;align-self:start;width:100%!important;max-width:none!important;min-height:calc(100vh - var(--site-notice-h,46px) - 72px)!important;margin:100vh auto 0!important;padding:24px clamp(24px,5vw,80px)!important;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;gap:clamp(32px,5vw,76px)!important}
+.page-inicio #institucion .institution-photo-frame{max-width:none!important}
+.page-inicio #institucion .institution-intro-photo{height:clamp(360px,58vh,620px)!important}
+.page-inicio.facade-reveal-active #institucion{position:relative!important;z-index:1!important;isolation:auto!important;overflow:visible!important;background:transparent!important}
+.page-inicio.facade-reveal-active #institucion::before{display:none!important}
+/* Primero se revela únicamente la fachada; el contenido sube después, al avanzar el scroll. */
+@media(max-width:760px){.page-inicio #institucion .institution-intro{top:calc(var(--site-notice-h,56px) + 60px)!important;min-height:calc(100svh - var(--site-notice-h,56px) - 60px)!important;grid-template-columns:1fr!important;gap:24px!important;margin-top:100svh!important;padding:24px 7%!important}.page-inicio #institucion .institution-intro-photo{height:clamp(260px,42svh,380px)!important}}
+/* Evita que asome una línea de la fachada entre la institución y Aprender más allá. */
+.page-inicio #aprendizaje{position:relative!important;z-index:2!important;margin-top:-32px!important;padding-top:32px!important}
+/* Foto fija en una pantalla propia, entre las cifras y Vida Estudiantil. */
+.page-inicio .middle-photo-stage{position:relative;height:100vh;min-height:520px;margin:0;padding:0;overflow:visible;background:transparent!important}
+.page-inicio .life-fixed-backdrop{position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(7,31,25,.24),rgba(7,31,25,.3)),url("assets/vida-estudiantil-portada-acto.jpg") center 52%/cover no-repeat;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease}
+.page-inicio .life-fixed-backdrop.is-visible{opacity:1;visibility:visible}
+@media(max-width:760px){.page-inicio .middle-photo-stage{height:100svh;min-height:460px}.page-inicio .life-fixed-backdrop{background-position:58% center}}
+/* Cifras de Inicio: un bloque más amplio, alto y destacado. */
+.page-inicio .school-impact{min-height:450px!important;padding:clamp(62px,7vw,84px) 4% 48px!important;background-image:radial-gradient(ellipse at 12% 0%,rgba(54,139,94,.34),transparent 38%),radial-gradient(ellipse at 90% 100%,rgba(29,114,76,.3),transparent 42%),linear-gradient(135deg,#104c35 0%,#145d3d 55%,#0d392b 100%)!important}
+.page-inicio .school-impact-heading,.page-inicio .school-impact-grid,.page-inicio .school-impact-credit{max-width:1400px!important}
+.page-inicio .school-impact-heading{margin-bottom:30px!important}
+.page-inicio .school-impact-heading h2{font-size:clamp(34px,4vw,48px)!important}
+.page-inicio .school-impact-heading::after{display:block;width:76px;height:4px;margin:18px auto 0;border-radius:4px;background:#f1d96f;content:""}
+.page-inicio .school-impact-grid{gap:clamp(14px,1.4vw,22px)!important}
+.page-inicio .school-impact-grid article{min-height:190px!important;padding:25px 20px!important;border-radius:16px!important;box-shadow:0 14px 28px rgba(3,31,21,.2)!important}
+.page-inicio .school-impact-credit{margin-top:20px!important}
+@media(max-width:760px){.page-inicio .school-impact{min-height:0!important;padding:52px 5% 38px!important}.page-inicio .school-impact-grid article{min-height:168px!important;padding:20px 14px!important}}
+@media(max-width:500px){.page-inicio .school-impact{padding:44px 5% 32px!important}.page-inicio .school-impact-heading{margin-bottom:22px!important}.page-inicio .school-impact-grid{gap:10px!important}.page-inicio .school-impact-grid article{min-height:148px!important;padding:16px 10px!important}}
+/* Vida Estudiantil: rojo limpio y textos de alto contraste. */
+.page-inicio #vida{background:#bd1f35!important;background-image:none!important;color:#fff!important}
+.page-inicio #vida .section-kicker,.page-inicio #vida h2,.page-inicio #vida .life-point-copy>span:not(.life-point-link){color:#fff!important}
+.page-inicio #vida .life-point{border-bottom:1px solid rgba(255,255,255,.3)!important;color:#fff!important}
+.page-inicio #vida .life-point b,.page-inicio #vida .life-point .life-point-link{color:#ffec75!important}
+.page-inicio #vida .life-point-copy>strong{color:#fff!important;font-size:16px!important;font-weight:800!important}
+.page-inicio #vida .life-point-copy>span:not(.life-point-link){font-size:15px!important;font-weight:550!important;line-height:1.6!important}
+.page-inicio #vida .life-point .life-point-link{display:inline-block;margin-top:7px;font-size:13px!important;font-weight:850!important;letter-spacing:.035em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.page-inicio #vida .life-point:hover{background:rgba(255,255,255,.08)!important}
+
+/* Institución: fotografía fija de la comunidad entre propósito y principios. */
+.page-institucion .institution-photo-stage{position:relative;z-index:1;width:100%;height:100vh;min-height:520px;margin:0;padding:0;background-image:linear-gradient(rgba(12,35,27,.12),rgba(12,35,27,.12)),url("assets/actividad-patio.jpg");background-position:center 48%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed}
+@media(max-width:760px){.page-institucion .institution-photo-stage{height:75svh;min-height:420px;background-attachment:scroll;background-position:center center}}
+
+/* Inicio: Aprender más allá del aula queda con fondo rojo limpio. */
+.page-inicio #aprendizaje.values.section{background:#b92532!important;background-image:none!important}
+
+/* Páginas de proyectos, encuentros y galería enlazadas desde Inicio. */
+.collection-hero{background:linear-gradient(125deg,#f1f7f1 0%,#fffaf7 100%)}
+.collection-hero .inner-hero-copy>p{max-width:480px}
+.collection-hero>img{border-radius:12px 4px 12px 4px;box-shadow:12px 12px 0 #dcebdc}
+.collection-body{max-width:1320px;margin:0 auto}
+.collection-body .detail-two p{font-size:15px;line-height:1.8}
+.collection-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:34px 0 42px}
+.collection-cards article{position:relative;min-height:190px;padding:27px 25px;border:1px solid #e3ebe3;border-radius:8px;background:linear-gradient(150deg,#fff,#f5f9f4);box-shadow:0 10px 24px rgba(20,83,50,.06)}
+.collection-cards article>span{display:grid;width:34px;height:34px;place-items:center;border-radius:50%;background:#e5f2e6;color:#16874b;font-size:12px;font-weight:800}
+.collection-cards h3{margin:17px 0 9px;color:#145332;font:700 21px/1.2 var(--display);letter-spacing:-.03em}
+.collection-cards p{margin:0;color:#5f6f65;font-size:14px;line-height:1.7}
+.collection-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:32px 0 28px}
+.collection-photo{position:relative;display:block;width:100%;height:290px;padding:0;overflow:hidden;border:3px solid #fff;border-radius:10px;background:#e8efe8;box-shadow:0 12px 28px rgba(20,60,40,.12);cursor:zoom-in;text-align:left}
+.collection-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .35s ease}
+.collection-photo:hover img,.collection-photo:focus-visible img{transform:scale(1.045);filter:brightness(.8)}
+.collection-photo>span{position:absolute;right:0;bottom:0;left:0;padding:36px 16px 14px;background:linear-gradient(transparent,rgba(7,31,25,.78));color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em}
+.collection-back{display:inline-flex;margin-top:12px;color:#16874b;font-size:13px}
+.gallery-photo-wall{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gallery-photo-wall .collection-photo{height:260px}
+@media(max-width:850px){.collection-cards{grid-template-columns:1fr 1fr}.collection-photo-grid,.gallery-photo-wall{grid-template-columns:1fr 1fr}.collection-photo{height:250px}}
+@media(max-width:560px){.collection-cards,.collection-photo-grid,.gallery-photo-wall{grid-template-columns:1fr}.collection-cards article{min-height:0;padding:22px}.collection-photo,.gallery-photo-wall .collection-photo{height:260px}.collection-body .detail-two p{font-size:14px}}

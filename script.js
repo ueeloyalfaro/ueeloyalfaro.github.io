@@ -45,6 +45,50 @@ if (institutionPhotoScene) {
   window.addEventListener('scroll', updateInstitutionPhotoPin, { passive: true });
   window.addEventListener('resize', updateInstitutionPhotoPin, { passive: true });
 }
+const facadeRevealSection = document.querySelector('.page-inicio #institucion');
+const facadeRevealEnd = document.querySelector('.page-inicio #aprendizaje');
+const facadeBackdrop = facadeRevealSection ? document.createElement('div') : null;
+if (facadeBackdrop) {
+  facadeBackdrop.className = 'facade-fixed-backdrop';
+  facadeBackdrop.setAttribute('aria-hidden', 'true');
+  document.body.prepend(facadeBackdrop);
+}
+const updateFacadeReveal = () => {
+  if (!facadeRevealSection || !facadeRevealEnd || !facadeBackdrop) return;
+  const scrollY = window.scrollY;
+  const sectionTop = facadeRevealSection.getBoundingClientRect().top + scrollY;
+  const sectionEnd = facadeRevealEnd.getBoundingClientRect().top + scrollY;
+  const facadeIsVisible = scrollY + window.innerHeight > sectionTop && scrollY + window.innerHeight < sectionEnd;
+  document.body.classList.toggle('facade-reveal-active', facadeIsVisible);
+  facadeBackdrop.classList.toggle('is-visible', facadeIsVisible);
+};
+if (facadeRevealSection && facadeRevealEnd) {
+  updateFacadeReveal();
+  window.addEventListener('scroll', updateFacadeReveal, { passive: true });
+  window.addEventListener('resize', updateFacadeReveal, { passive: true });
+}
+const middlePhotoStage = document.querySelector('.page-inicio .middle-photo-stage');
+const middlePhotoEnd = document.querySelector('.page-inicio #vida');
+const lifeBackdrop = middlePhotoStage ? document.createElement('div') : null;
+if (lifeBackdrop) {
+  lifeBackdrop.className = 'life-fixed-backdrop';
+  lifeBackdrop.setAttribute('aria-hidden', 'true');
+  document.body.prepend(lifeBackdrop);
+}
+const updateLifeReveal = () => {
+  if (!middlePhotoStage || !middlePhotoEnd || !lifeBackdrop) return;
+  const scrollY = window.scrollY;
+  const sectionTop = middlePhotoStage.getBoundingClientRect().top + scrollY;
+  const sectionEnd = middlePhotoEnd.getBoundingClientRect().top + scrollY;
+  const active = scrollY + window.innerHeight > sectionTop && scrollY < sectionEnd;
+  document.body.classList.toggle('middle-photo-active', active);
+  lifeBackdrop.classList.toggle('is-visible', active);
+};
+if (middlePhotoStage && middlePhotoEnd) {
+  updateLifeReveal();
+  window.addEventListener('scroll', updateLifeReveal, { passive: true });
+  window.addEventListener('resize', updateLifeReveal, { passive: true });
+}
 const photoSections = [...document.querySelectorAll('main > section:not(.hero):not(.inner-hero)')].filter((section) => {
   const photo = section.querySelector('img[src]');
   if (!photo?.src) return false;

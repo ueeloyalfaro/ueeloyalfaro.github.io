@@ -530,3 +530,8 @@ body.program-detail-page .program-closing-photo .button{background:#c4363e;color
 .site-header .main-nav .nav-dropdown.has-active>summary:hover,.site-header .main-nav .nav-dropdown.has-active[open]>summary{background:#a72c35!important;color:#fff!important;box-shadow:0 8px 18px #a72c3540!important}
 .site-header .main-nav .nav-dropdown.has-active>summary:hover::before,.site-header .main-nav .nav-dropdown.has-active[open]>summary::before{background:#fff!important}
 .site-header .main-nav .nav-submenu a.active:hover{background:#a72c35!important;color:#fff!important;box-shadow:inset 3px 0 #7d2028!important;text-decoration-color:#fff!important}
+/* Resaltado rectangular para los menús principales. */
+.site-header .main-nav>a,.site-header .main-nav .nav-dropdown>summary,
+.site-header .main-nav>a:hover,.site-header .main-nav>a.active,.site-header .main-nav>a.home-clicked,
+.site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,
+.site-header .main-nav .nav-dropdown:focus-within>summary{border-radius:4px!important}
