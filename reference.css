@@ -1391,3 +1391,6 @@ body.page-inicio{overflow-x:clip}
 .breaking-news-link{display:inline-flex!important;width:auto!important;justify-content:center!important;margin:0!important;padding:11px 20px!important}
 .breaking-news-close{top:18px!important;right:18px!important}
 @media(max-width:620px){.breaking-news-modal:not([hidden]){padding:12px!important}.breaking-news-dialog{width:min(560px,calc(100vw - 24px))!important;max-width:calc(100vw - 24px)!important;max-height:calc(100vh - 24px)!important;padding:10px!important}.breaking-news-image{max-height:calc(100vh - 112px)!important}.breaking-news-close{top:14px!important;right:14px!important}}
+
+.registration-news-image{object-fit:contain!important;object-position:center;background:#30236e!important}
+.registration-news-card .registration-news-image{height:175px!important}

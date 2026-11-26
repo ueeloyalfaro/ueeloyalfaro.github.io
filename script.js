@@ -231,7 +231,7 @@ if (year) year.textContent = new Date().getFullYear();
 // Show the newest home-page story once per browser for each published news item.
 (() => {
   const modal = document.querySelector('#breaking-news-modal');
-  const latestCard = document.querySelector('.page-inicio .news-grid .news-card[href^="novedades.html"]');
+  const latestCard = document.querySelector('#noticias .news-grid .news-card[href^="novedades.html"]');
   if (!modal || !latestCard) return;
 
   const title = latestCard.querySelector('h3')?.textContent.trim();
@@ -242,7 +242,7 @@ if (year) year.textContent = new Date().getFullYear();
   const showThrough = latestCard.dataset.showThrough;
   if (showThrough && Date.now() > new Date(`${showThrough}T23:59:59-05:00`).getTime()) return;
 
-  const storyKey = `${latestCard.getAttribute('href')}|${title}|${date || ''}`;
+  const storyKey = `${latestCard.getAttribute('href')}|${title}|${date || ''}|${latestCard.dataset.version || ''}|${image.currentSrc || image.src}`;
   const storageKey = 'eloy-alfaro-seen-breaking-news-session';
   try {
     if (sessionStorage.getItem(storageKey) === storyKey) return;
