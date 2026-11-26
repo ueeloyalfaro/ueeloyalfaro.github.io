@@ -239,6 +239,9 @@ if (year) year.textContent = new Date().getFullYear();
   const image = latestCard.querySelector('img');
   if (!title || !image) return;
 
+  const showThrough = latestCard.dataset.showThrough;
+  if (showThrough && Date.now() > new Date(`${showThrough}T23:59:59-05:00`).getTime()) return;
+
   const storyKey = `${latestCard.getAttribute('href')}|${title}|${date || ''}`;
   const storageKey = 'eloy-alfaro-seen-breaking-news-session';
   try {
@@ -250,6 +253,7 @@ if (year) year.textContent = new Date().getFullYear();
 
   modal.querySelector('.breaking-news-date').textContent = date || 'COMUNICADO OFICIAL';
   modal.querySelector('#breaking-news-title').textContent = title;
+  modal.querySelector('#breaking-news-description').textContent = latestCard.dataset.description || 'Conoce la información más reciente de nuestra comunidad educativa.';
   const modalImage = modal.querySelector('.breaking-news-image');
   modalImage.src = image.currentSrc || image.src;
   modalImage.alt = image.alt || title;
