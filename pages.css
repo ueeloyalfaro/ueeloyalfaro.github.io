@@ -96,3 +96,40 @@ main>section.reveal.is-visible{transform:translateX(0);filter:none}
 
 /* Contacto: WhatsApp, formulario y mapa */
 .whatsapp-contact,.contact-hero-whatsapp{display:inline-flex;align-items:center;gap:12px}.whatsapp-contact svg,.contact-hero-whatsapp svg{width:23px;height:23px;flex:none}.contact-message-form{display:grid;gap:17px;margin:34px 0;padding:clamp(22px,4vw,38px);border:1px solid #dce8d8;border-radius:16px;background:linear-gradient(135deg,#f6faf3,#fff 60%,#fff3f0);box-shadow:0 14px 34px #14533216}.contact-message-form h3{margin:0 0 5px;color:#145332;font-family:var(--display);font-size:clamp(24px,3vw,34px)}.contact-message-form label{display:grid;gap:7px;color:#244b37;font-size:15px;font-weight:700}.contact-message-form input:not([type=hidden]),.contact-message-form select,.contact-message-form textarea{width:100%;padding:13px 14px;border:1px solid #cbd9cd;border-radius:8px;background:white;color:#23382d;font:inherit;font-size:16px}.contact-message-form textarea{resize:vertical}.gps-field{display:flex;align-items:flex-start;gap:8px;flex-direction:column}.gps-field p{margin:0;color:#607066;font-size:14px}.button-outline{border:1px solid #17894d;background:#fff;color:#145332}.contact-info-grid article a{display:inline-block;margin-top:9px;color:#16874b;font-weight:700}.contact-map{height:360px;overflow:hidden;border:5px solid white;border-radius:15px;box-shadow:0 12px 30px #14533224}.contact-map iframe{width:100%;height:100%;border:0}@media(max-width:600px){.contact-map{height:290px}}
+
+/* Recorrido visual por grado: una composición editorial distinta a Inicial. */
+.course-journey{display:grid;gap:1.25rem;margin:1rem 0 3.8rem}
+.course-journey-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;padding:.5rem .25rem}
+.course-journey-heading p{max-width:540px;margin:0;color:#607168;line-height:1.55}
+.course-journey-item{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);grid-template-areas:"photo copy";align-items:center;gap:clamp(1.2rem,4vw,3.5rem);min-height:280px}
+.course-journey-item:nth-of-type(even){grid-template-areas:"copy photo"}
+.course-journey-photo{grid-area:photo;position:relative;min-width:0}
+.course-journey-photo img{display:block;width:100%;height:clamp(230px,28vw,350px);object-fit:cover}
+.course-journey-index{position:absolute;z-index:1;top:14px;left:14px;display:grid;width:46px;height:46px;place-items:center;background:#1b9c58;color:#fff;font-weight:850}
+.course-journey-copy{grid-area:copy;padding:clamp(1.2rem,3vw,2.7rem)}
+.course-journey-kicker{color:#c9363e;font-size:.72rem;font-weight:850;letter-spacing:.16em}
+.course-journey-copy h2{margin:.8rem 0;color:#164b32;font-size:clamp(1.65rem,3.2vw,2.5rem);line-height:1.12}
+.course-journey-copy p{max-width:560px;margin:0;color:#5c6c63;font-size:1rem;line-height:1.75}
+/* Elemental: marcos suaves y fondos claros. */
+body[data-course-level="elemental"] .course-journey-item{overflow:hidden;border:1px solid #dbe8dc;border-radius:24px;background:#f4f8f2}
+body[data-course-level="elemental"] .course-journey-photo img{border:8px solid #fff;border-radius:18px;box-shadow:0 12px 26px #174b3518}
+body[data-course-level="elemental"] .course-journey-index{border-radius:14px}
+/* Media: franjas editoriales con acento rojo y fotografía rectangular. */
+body[data-course-level="media"] .course-journey-item{position:relative;overflow:hidden;border:1px solid #e4e9e4;background:#fff;box-shadow:0 14px 30px #1946300d}
+body[data-course-level="media"] .course-journey-item:nth-of-type(odd){border-left:5px solid #c9363e}
+body[data-course-level="media"] .course-journey-item:nth-of-type(even){border-right:5px solid #1b9c58}
+body[data-course-level="media"] .course-journey-photo{padding:14px}
+body[data-course-level="media"] .course-journey-photo img{border-radius:3px}
+body[data-course-level="media"] .course-journey-index{top:24px;left:24px;outline:4px solid #ffffffd9}
+body[data-course-level="media"] .course-journey-item:nth-of-type(even) .course-journey-index{left:auto;right:24px}
+/* Superior: panel profundo, numeración destacada y foto enmarcada. */
+body[data-course-level="superior"] .course-journey-item{overflow:hidden;border-radius:4px;background:#154b34;color:#fff;box-shadow:12px 12px 0 #e4eddf}
+body[data-course-level="superior"] .course-journey-item:nth-of-type(even){background:#f1f6ef;box-shadow:-12px 12px 0 #e5ecdf}
+body[data-course-level="superior"] .course-journey-photo{padding:12px}
+body[data-course-level="superior"] .course-journey-photo img{height:clamp(245px,30vw,370px);border:4px solid #ffffffd9}
+body[data-course-level="superior"] .course-journey-index{top:26px;left:26px;border:2px solid #e9db8e;background:#c9363e}
+body[data-course-level="superior"] .course-journey-item:nth-of-type(even) .course-journey-index{left:auto;right:26px}
+body[data-course-level="superior"] .course-journey-item:not(:nth-of-type(even)) .course-journey-copy h2{color:#fff}
+body[data-course-level="superior"] .course-journey-item:not(:nth-of-type(even)) .course-journey-copy p{color:#e3eee6}
+body[data-course-level="superior"] .course-journey-item:not(:nth-of-type(even)) .course-journey-kicker{color:#e8d77f}
+@media(max-width:760px){.course-journey-heading{align-items:flex-start;flex-direction:column}.course-journey-item,.course-journey-item:nth-of-type(even){grid-template-columns:1fr;grid-template-areas:"photo" "copy";gap:0}.course-journey-photo{padding:12px!important}.course-journey-photo img{height:250px!important}.course-journey-copy{padding:1.1rem 1.25rem 1.5rem}.course-journey-index{top:22px!important;left:22px!important;right:auto!important}.course-journey-item:nth-of-type(even) .course-journey-index{left:auto!important;right:22px!important}.course-journey-heading p{font-size:.95rem}}

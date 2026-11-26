@@ -535,3 +535,35 @@ body.program-detail-page .program-closing-photo .button{background:#c4363e;color
 .site-header .main-nav>a:hover,.site-header .main-nav>a.active,.site-header .main-nav>a.home-clicked,
 .site-header .main-nav .nav-dropdown>summary:hover,.site-header .main-nav .nav-dropdown[open]>summary,
 .site-header .main-nav .nav-dropdown:focus-within>summary{border-radius:4px!important}
+
+/* Inicial: alterna las fotografías y el texto entre secciones. */
+body.page-inicial .program-detail-highlight{grid-template-areas:"image copy"}
+body.page-inicial .program-detail-highlight>img{grid-area:image}
+body.page-inicial .program-detail-highlight>div{grid-area:copy}
+body.page-inicial .program-detail-highlight--reverse{grid-template-areas:"copy image"}
+@media(max-width:850px){body.page-inicial .program-detail-highlight,body.page-inicial .program-detail-highlight--reverse{grid-template-areas:"image" "copy"}}
+
+/* Bachilleratos: secciones de laboratorio y tecnología de gran formato. */
+.bachillerato-experience-stack{display:grid;gap:clamp(2rem,5vw,4rem);margin:2rem 0 4.5rem}
+.bachillerato-experience-intro{max-width:900px;padding:clamp(1rem,3vw,2rem) 0 .4rem}
+.bachillerato-experience-intro>span{color:#c9363e;font-size:.76rem;font-weight:850;letter-spacing:.18em}
+.bachillerato-experience-intro h2{max-width:800px;margin:.7rem 0;color:#164b32;font-size:clamp(2.2rem,4.6vw,4.3rem);line-height:1.04}
+.bachillerato-experience-intro p{max-width:720px;margin:0;color:#5c6c63;font-size:1.1rem;line-height:1.7}
+.bachillerato-experience{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);grid-template-areas:"photo copy";align-items:stretch;min-height:440px;overflow:hidden;border-radius:26px;background:#f0f6ef;box-shadow:0 22px 52px #103f2d15}
+.bachillerato-experience:nth-of-type(even){grid-template-areas:"copy photo"}
+.bachillerato-experience-photo{grid-area:photo;position:relative;min-height:440px;overflow:hidden;background:#dce8df}
+.bachillerato-experience-photo img{display:block;width:100%;height:100%;min-height:440px;object-fit:cover;transition:transform .7s ease}
+.bachillerato-experience:hover .bachillerato-experience-photo img{transform:scale(1.035)}
+.bachillerato-experience-number{position:absolute;z-index:1;top:22px;left:22px;display:grid;width:58px;height:58px;place-items:center;border:2px solid #fff;border-radius:50%;background:#13834a;color:#fff;font-size:1.12rem;font-weight:850;box-shadow:0 8px 20px #092a1d40}
+.bachillerato-experience:nth-of-type(even) .bachillerato-experience-number{left:auto;right:22px}
+.bachillerato-experience-copy{grid-area:copy;display:flex;flex-direction:column;justify-content:center;padding:clamp(2rem,5vw,5rem)}
+.bachillerato-experience-kicker{color:#c9363e;font-size:.72rem;font-weight:850;letter-spacing:.15em;line-height:1.5}
+.bachillerato-experience-copy h2{margin:.9rem 0 1rem;color:#164b32;font-size:clamp(2rem,3.5vw,3.25rem);line-height:1.08}
+.bachillerato-experience-copy p{margin:0;color:#53695d;font-size:1.08rem;line-height:1.8}
+body[data-course-level="tecnico"] .bachillerato-experience{background:#123e32}
+body[data-course-level="tecnico"] .bachillerato-experience-copy h2{color:#f8fbf7}
+body[data-course-level="tecnico"] .bachillerato-experience-copy p{color:#d4e3d9}
+body[data-course-level="tecnico"] .bachillerato-experience-kicker{color:#e9d783}
+body[data-course-level="tecnico"] .bachillerato-experience-number{border-radius:12px;background:#c9363e}
+body[data-course-level="tecnico"] .bachillerato-experience-intro h2{color:#123e32}
+@media(max-width:760px){.bachillerato-experience{grid-template-columns:1fr;grid-template-areas:"photo" "copy";min-height:0;border-radius:18px}.bachillerato-experience:nth-of-type(even){grid-template-areas:"photo" "copy"}.bachillerato-experience-photo,.bachillerato-experience-photo img{height:300px;min-height:300px}.bachillerato-experience-copy{padding:1.5rem 1.4rem 1.8rem}.bachillerato-experience-copy h2{font-size:clamp(1.8rem,8vw,2.5rem)}.bachillerato-experience-copy p{font-size:1rem}.bachillerato-experience-number{top:16px;left:16px;width:48px;height:48px}.bachillerato-experience:nth-of-type(even) .bachillerato-experience-number{left:auto;right:16px}}
