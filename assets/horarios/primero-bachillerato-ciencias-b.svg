@@ -22,7 +22,7 @@
 <text class="subject" x="644.0" y="364.0" text-anchor="middle"><tspan x="644.0" dy="0">Matemáticas</tspan></text>
 <text class="teacher" x="644.0" y="389.0" text-anchor="middle"><tspan x="644.0" dy="0">MG. MARCO M.</tspan></text>
 <rect x="798.33" y="307" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
-<text x="874.00" y="374" text-anchor="middle" class="recess">DESCANSO</text>
+<text x="874.00" y="374" text-anchor="middle" class="recess"></text>
 <rect x="951.67" y="307" width="151.33" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
 <text class="subject" x="1027.3" y="356.0" text-anchor="middle"><tspan x="1027.3" dy="0">LENG. Y LIT.</tspan></text>
 <text class="teacher" x="1027.3" y="381.0" text-anchor="middle"><tspan x="1027.3" dy="0">LIC. MARGARITA</tspan><tspan x="1027.3" dy="16">MERO</tspan></text>
@@ -41,7 +41,7 @@
 <text class="subject" x="720.7" y="493.0" text-anchor="middle"><tspan x="720.7" dy="0">BIOL</tspan></text>
 <text class="teacher" x="720.7" y="518.0" text-anchor="middle"><tspan x="720.7" dy="0">LIC.ANDREA G.</tspan></text>
 <rect x="798.33" y="436" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
-<text x="874.00" y="503" text-anchor="middle" class="recess">DESCANSO</text>
+<text x="874.00" y="503" text-anchor="middle" class="recess"></text>
 <rect x="951.67" y="436" width="304.67" height="127" rx="13" fill="#eaf2f8" stroke="#d3e0d6" stroke-width="1.2"/>
 <text class="subject" x="1104.0" y="493.0" text-anchor="middle"><tspan x="1104.0" dy="0">Educación Física</tspan></text>
 <text class="teacher" x="1104.0" y="518.0" text-anchor="middle"><tspan x="1104.0" dy="0">LIC. FREDDY P</tspan></text>
@@ -57,7 +57,7 @@
 <text class="subject" x="644.0" y="622.0" text-anchor="middle"><tspan x="644.0" dy="0">Filosofía</tspan></text>
 <text class="teacher" x="644.0" y="647.0" text-anchor="middle"><tspan x="644.0" dy="0">LIC. CARLOS E.</tspan></text>
 <rect x="798.33" y="565" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
-<text x="874.00" y="632" text-anchor="middle" class="recess">DESCANSO</text>
+<text x="874.00" y="632" text-anchor="middle" class="recess"></text>
 <rect x="951.67" y="565" width="151.33" height="127" rx="13" fill="#f1edf7" stroke="#d3e0d6" stroke-width="1.2"/>
 <text class="subject" x="1027.3" y="614.0" text-anchor="middle"><tspan x="1027.3" dy="0">Inglés S</tspan></text>
 <text class="teacher" x="1027.3" y="639.0" text-anchor="middle"><tspan x="1027.3" dy="0">LIC. YESSENIA</tspan><tspan x="1027.3" dy="16">M.</tspan></text>
@@ -73,7 +73,7 @@
 <text class="subject" x="644.0" y="751.0" text-anchor="middle"><tspan x="644.0" dy="0">Matemáticas</tspan></text>
 <text class="teacher" x="644.0" y="776.0" text-anchor="middle"><tspan x="644.0" dy="0">MG. MARCO M.</tspan></text>
 <rect x="798.33" y="694" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
-<text x="874.00" y="761" text-anchor="middle" class="recess">DESCANSO</text>
+<text x="874.00" y="761" text-anchor="middle" class="recess"></text>
 <rect x="951.67" y="694" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
 <text class="subject" x="1104.0" y="751.0" text-anchor="middle"><tspan x="1104.0" dy="0">EDUC. CIUDAD</tspan></text>
 <text class="teacher" x="1104.0" y="776.0" text-anchor="middle"><tspan x="1104.0" dy="0">MG. ROBERTO M.</tspan></text>
@@ -89,7 +89,7 @@
 <text class="subject" x="644.0" y="880.0" text-anchor="middle"><tspan x="644.0" dy="0">Lengua y Literatura</tspan></text>
 <text class="teacher" x="644.0" y="905.0" text-anchor="middle"><tspan x="644.0" dy="0">LIC. MARGARITA MERO</tspan></text>
 <rect x="798.33" y="823" width="151.33" height="127" rx="13" fill="#fff8e7" stroke="#e0e8e1" stroke-width="1.1"/>
-<text x="874.00" y="890" text-anchor="middle" class="recess">DESCANSO</text>
+<text x="874.00" y="890" text-anchor="middle" class="recess"></text>
 <rect x="951.67" y="823" width="304.67" height="127" rx="13" fill="#eef5ef" stroke="#d3e0d6" stroke-width="1.2"/>
 <text class="subject" x="1104.0" y="880.0" text-anchor="middle"><tspan x="1104.0" dy="0">Historia</tspan></text>
 <text class="teacher" x="1104.0" y="905.0" text-anchor="middle"><tspan x="1104.0" dy="0">MG. YAJAIRA C.</tspan></text>

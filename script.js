@@ -2,6 +2,19 @@ const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.main-nav');
 const siteAnnouncement = document.querySelector('.announcement');
 const siteHeader = document.querySelector('.site-header');
+if (location.protocol === 'file:') {
+  document.querySelectorAll('.program-video iframe').forEach((player) => {
+    const videoId = new URL(player.src).pathname.split('/').filter(Boolean).pop();
+    if (!videoId) return;
+    const link = document.createElement('a');
+    link.className = 'local-video-fallback';
+    link.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Este reproductor requiere abrir la página desde un servidor. Ver video en YouTube ↗';
+    player.replaceWith(link);
+  });
+}
 const siteHeaderSpacer = siteHeader ? document.createElement('div') : null;
 if (siteHeaderSpacer) {
   siteHeaderSpacer.className = 'site-header-spacer';
@@ -100,6 +113,39 @@ if (document.body.classList.contains('page-inicio')) {
   photoSections.forEach((section) => section.classList.remove('scroll-photo-section'));
   photoSections.length = 0;
 }
+const studentPhotoStages = [...document.querySelectorAll('.page-vida-estudiantil .student-static-photo')];
+studentPhotoStages.forEach((stage) => stage.style.setProperty('--student-stage-position', stage.dataset.photoPosition || 'center 42%'));
+const studentPhotoBackdrop = studentPhotoStages.length ? document.createElement('div') : null;
+if (studentPhotoBackdrop) {
+  studentPhotoBackdrop.className = 'student-fixed-backdrop';
+  studentPhotoBackdrop.setAttribute('aria-hidden', 'true');
+  document.body.prepend(studentPhotoBackdrop);
+}
+const updateStudentStaticPhoto = () => {
+  if (!studentPhotoBackdrop) return;
+  const fixedHeaderHeight = document.querySelector('.site-header')?.getBoundingClientRect().height || 83;
+  const photoTrigger = window.scrollY + fixedHeaderHeight + 18;
+  const activeStage = studentPhotoStages.filter((stage) => {
+    const stageTop = stage.getBoundingClientRect().top + window.scrollY;
+    return stageTop <= photoTrigger && stageTop + stage.offsetHeight > photoTrigger;
+  }).at(-1);
+  const active = Boolean(activeStage);
+  document.body.classList.toggle('has-student-fixed-photo', active);
+  if (!activeStage) {
+    studentPhotoBackdrop.style.removeProperty('--student-fixed-image');
+    return;
+  }
+  const image = activeStage.style.getPropertyValue('--student-static-image');
+  studentPhotoBackdrop.style.setProperty('--student-fixed-image', image);
+  studentPhotoBackdrop.style.setProperty('--student-fixed-position', activeStage.dataset.photoPosition || 'center 22%');
+  const compactPhotoSize = activeStage.dataset.photoSize;
+  studentPhotoBackdrop.style.setProperty('--student-fixed-size', window.innerWidth <= 760 && compactPhotoSize ? compactPhotoSize : 'cover');
+};
+if (studentPhotoBackdrop) {
+  updateStudentStaticPhoto();
+  window.addEventListener('scroll', updateStudentStaticPhoto, { passive: true });
+  window.addEventListener('resize', updateStudentStaticPhoto, { passive: true });
+}
 const pinBackdropSections = [
   { section: document.querySelector('.page-inicio .photo-only-stage'), end: document.querySelector('.page-inicio #vida'), reverseStart: document.querySelector('.page-inicio #oferta'), image: 'assets/feria-proyectos.jpg', endBeforeViewport: true },
   { section: document.querySelector('.page-inicio #contacto'), end: document.querySelector('.page-inicio .site-footer'), image: 'assets/feria-proyectos.jpg' }
@@ -181,6 +227,53 @@ if (contactForm) {
   });
 }const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
+
+// Show the newest home-page story once per browser for each published news item.
+(() => {
+  const modal = document.querySelector('#breaking-news-modal');
+  const latestCard = document.querySelector('.page-inicio .news-grid .news-card[href^="novedades.html"]');
+  if (!modal || !latestCard) return;
+
+  const title = latestCard.querySelector('h3')?.textContent.trim();
+  const date = latestCard.querySelector('small')?.textContent.trim();
+  const image = latestCard.querySelector('img');
+  if (!title || !image) return;
+
+  const storyKey = `${latestCard.getAttribute('href')}|${title}|${date || ''}`;
+  const storageKey = 'eloy-alfaro-seen-breaking-news-session';
+  try {
+    if (sessionStorage.getItem(storageKey) === storyKey) return;
+    sessionStorage.setItem(storageKey, storyKey);
+  } catch {
+    // Still show the notice for this page load if browser storage is unavailable.
+  }
+
+  modal.querySelector('.breaking-news-date').textContent = date || 'COMUNICADO OFICIAL';
+  modal.querySelector('#breaking-news-title').textContent = title;
+  const modalImage = modal.querySelector('.breaking-news-image');
+  modalImage.src = image.currentSrc || image.src;
+  modalImage.alt = image.alt || title;
+  const newsLink = modal.querySelector('.breaking-news-link');
+  newsLink.href = latestCard.href;
+
+  const closeModal = () => {
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('breaking-news-open');
+  };
+  modal.querySelectorAll('[data-breaking-close]').forEach((control) => control.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+  newsLink.addEventListener('click', closeModal);
+
+  window.setTimeout(() => {
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('breaking-news-open');
+    modal.querySelector('.breaking-news-close').focus();
+  }, 450);
+})();
 
 const revealItems = document.querySelectorAll('.reveal, main > section:not(.hero):not(.inner-hero), .intro-layout, .values-row, .level-card, .high-school, .activity-card, .news-list article, .contact-card, .contact-side, .program-grid article, .gallery-item, .notice-grid article, .program-feature, .video-feature, .contact-detail-card, .photo-stack, .value-card, .offer, .life-image, .news-card, .section-heading, .contact-photo, .student-events-heading, .student-events .desfile-life-link, .activity-ideas > div, .contact-info-grid article');
 revealItems.forEach((item) => item.classList.add('reveal'));
@@ -332,7 +425,9 @@ const updateActiveNavigation = () => {
     const target = new URL(link.href, location.href);
     return pageName(target.pathname) === currentName && target.hash === currentHash;
   });
-  if (!activeLink && !currentHash) {
+  // A generic navigation link should remain active when the destination
+  // page is opened at a section anchor (for example, a news article).
+  if (!activeLink) {
     activeLink = navigationLinks.find((link) => {
       const target = new URL(link.href, location.href);
       return pageName(target.pathname) === currentName && !target.hash;

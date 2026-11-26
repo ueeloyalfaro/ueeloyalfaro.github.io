@@ -3,6 +3,11 @@
     {
       "target": "principal",
       "public": ".",
+      "headers": [
+        {"source": "**/*.html", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]},
+        {"source": "/reference.css", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]},
+        {"source": "/script.js", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]}
+      ],
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -13,6 +18,11 @@
     {
       "target": "corto",
       "public": ".",
+      "headers": [
+        {"source": "**/*.html", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]},
+        {"source": "/reference.css", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]},
+        {"source": "/script.js", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]}
+      ],
       "ignore": [
         "firebase.json",
         "**/.*",

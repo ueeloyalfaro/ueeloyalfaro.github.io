@@ -3532,7 +3532,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/primero-bachillerato-ciencias-a.svg?v=20261125e"
+    "image": "assets/horarios/primero-bachillerato-ciencias-a.svg?v=20261126a"
   },
   {
     "page": 17,
@@ -3769,7 +3769,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/primero-bachillerato-ciencias-b.svg?v=20261125e"
+    "image": "assets/horarios/primero-bachillerato-ciencias-b.svg?v=20261126a"
   },
   {
     "page": 18,
@@ -4090,7 +4090,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/primero-bachillerato-tecnico-a.svg?v=20261125e"
+    "image": "assets/horarios/primero-bachillerato-tecnico-a.svg?v=20261126a"
   },
   {
     "page": 19,
@@ -4328,7 +4328,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/segundo-bachillerato-ciencias-a.svg?v=20261125e"
+    "image": "assets/horarios/segundo-bachillerato-ciencias-a.svg?v=20261126a"
   },
   {
     "page": 20,
@@ -4564,7 +4564,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/segundo-bachillerato-ciencias-b.svg?v=20261125e"
+    "image": "assets/horarios/segundo-bachillerato-ciencias-b.svg?v=20261126a"
   },
   {
     "page": 21,
@@ -4830,7 +4830,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/segundo-bachillerato-tecnico-a.svg?v=20261125e"
+    "image": "assets/horarios/segundo-bachillerato-tecnico-a.svg?v=20261126a"
   },
   {
     "page": 22,
@@ -5060,7 +5060,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/tercero-bachillerato-ciencias-a.svg?v=20261125e"
+    "image": "assets/horarios/tercero-bachillerato-ciencias-a.svg?v=20261126a"
   },
   {
     "page": 23,
@@ -5290,7 +5290,7 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/tercero-bachillerato-ciencias-b.svg?v=20261125e"
+    "image": "assets/horarios/tercero-bachillerato-ciencias-b.svg?v=20261126a"
   },
   {
     "page": 24,
@@ -5545,6 +5545,6 @@ window.HORARIOS_AULA = [
       ]
     ],
     "layout": "extended",
-    "image": "assets/horarios/tercero-bachillerato-tecnico-a.svg?v=20261125e"
+    "image": "assets/horarios/tercero-bachillerato-tecnico-a.svg?v=20261126a"
   }
 ];
