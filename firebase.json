@@ -7,7 +7,7 @@
         "firebase.json",
         "**/.*",
         "**/node_modules/**",
-        "tmp/archivo-fotografico-para-futuro/**"
+        "tmp/**"
       ]
     },
     {
@@ -17,7 +17,7 @@
         "firebase.json",
         "**/.*",
         "**/node_modules/**",
-        "tmp/archivo-fotografico-para-futuro/**"
+        "tmp/**"
       ]
     }
   ]
